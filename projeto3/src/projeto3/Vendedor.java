@@ -1,5 +1,7 @@
 package projeto3;
 
+import java.util.Date;
+
 public class Vendedor extends Pessoa {
 
 	private RoupaEAcessorio roupaeacessorio;
@@ -21,11 +23,11 @@ public class Vendedor extends Pessoa {
 		this.nome = nome;
 	}
 	
-	public int getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
 	
-	public void setCpf(int cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 	
@@ -62,19 +64,18 @@ public class Vendedor extends Pessoa {
 	}
 
 	@Override
-	void cadastrar() {
+	void cadastrar(String nome, boolean status, String cpf, String endereco, int telefone, Date dataCadastro) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	void editar() {
-		// TODO Auto-generated method stub
-
+	void editar(String nome, String cpf, String endereco,int telefone) {
+		
 	}
 
 	@Override
-	void deletar() {
+	void deletar(int posisaoExcluir) {
 		// TODO Auto-generated method stub
 
 	}

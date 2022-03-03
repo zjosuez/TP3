@@ -1,9 +1,11 @@
 package projeto3;
 
+import java.util.Date;
+
 public abstract class Pessoa {
 	
 	protected String nome;
-	protected int cpf;
+	protected String cpf;
 	protected String endereco;
 	protected int telefone;
 	
@@ -14,10 +16,10 @@ public abstract class Pessoa {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public int getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
-	public void setCpf(int cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 	public String getEndereco() {
@@ -34,8 +36,8 @@ public abstract class Pessoa {
 	}
 	
 	// Methods
-	abstract void cadastrar();
-	abstract void editar();
-	abstract void deletar() ;
+	abstract void cadastrar(String nome, boolean status, String cpf, String endereco, int telefone, Date dataCadastro);
+	abstract void editar(String nome, String cpf, String endereco,int telefone);
+	abstract void deletar(int posicaoExcluir) ;
 	abstract void ler() ;
 }

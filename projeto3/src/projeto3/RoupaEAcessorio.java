@@ -105,9 +105,11 @@ public class RoupaEAcessorio {
 
 	// Methods
 	public void cadastrar() {     
-		products.add(new RoupaEAcessorio(nome, categoria, modelo, tamanho, descricao, condicaoDeUso, preco, tipo, genero));
-		System.out.println("O produto " + nome + " foi cadastrado com sucesso!");
 		
+		
+//		products.add(new RoupaEAcessorio(nome, categoria, modelo, tamanho, descricao, condicaoDeUso, preco, tipo, genero));
+//		System.out.println("O produto " + nome + " foi cadastrado com sucesso!");
+//		
 	}
 	
 	public void editar(int posicaoEditar,String nome, String categoria, String modelo, int tamanho, String descricao, String condicaoDeUso, double preco,  String tipo, String genero) {
@@ -148,8 +150,6 @@ public class RoupaEAcessorio {
 			} else {
 				System.out.println("Produto não encontrado");
 			}
-			
 		}
 	}
-	
 }

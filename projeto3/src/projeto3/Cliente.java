@@ -1,17 +1,20 @@
 package projeto3;
 
+import java.util.*;
+
 public class Cliente extends Pessoa {
 
-	private String dataCadastro;
+	private Date dataCadastro;
 	private boolean status;
-	
+	private ArrayList<Cliente> listaCliente = new ArrayList<Cliente>();
 	// Constructor
-	public Cliente(String nome, boolean status, int cpf, String endereco, int telefone) {
+	public Cliente(String nome, boolean status, String cpf, String endereco, int telefone, Date dataCadastro) {
 		this.nome = nome;
-		this.status = status;
+		this.status = false;
 		this.cpf = cpf;
 		this.endereco = endereco;
 		this.telefone = telefone;
+		this.dataCadastro = dataCadastro;
 	}
 	
 	
@@ -24,11 +27,11 @@ public class Cliente extends Pessoa {
 		this.nome = nome;
 	}
 	
-	public int getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
 	
-	public void setCpf(int cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 	
@@ -48,11 +51,11 @@ public class Cliente extends Pessoa {
 		this.telefone = telefone;
 	}
 	
-	public String getDataCadastro() {
+	public Date getDataCadastro() {
 		return dataCadastro;
 	}
 
-	public void setDataCadastro(String dataCadastro) {
+	public void setDataCadastro(Date dataCadastro) {
 		this.dataCadastro = dataCadastro;
 	}
 
@@ -66,30 +69,56 @@ public class Cliente extends Pessoa {
 
 	// Methods
 	@Override
-	void cadastrar() {
-		// TODO Auto-generated method stub
-		System.out.println("josue");
+	void cadastrar(String nome, boolean status, String cpf, String endereco, int telefone, Date dataCadastro) {
+		setNome(nome);
+		setStatus(status);
+		setCpf(cpf);
+		setEndereco(endereco);
+		setTelefone(telefone);
+		setDataCadastro(dataCadastro);
+		listaCliente.add(new Cliente(nome, status, cpf, endereco, telefone, dataCadastro));
+		System.out.println("O cliente " + nome + " foi cadastrado com sucesso!");
+	}
+	@Override
+	void editar(String nome, String cpf, String endereco,int telefone) {
+		int posicaoEditar = 0;
+		listaCliente.get(posicaoEditar).setNome(nome);
+		listaCliente.get(posicaoEditar).setCpf(cpf);
+		listaCliente.get(posicaoEditar).setEndereco(endereco);
+		listaCliente.get(posicaoEditar).setTelefone(telefone);
 	}
 
 	@Override
-	void editar() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	void deletar() {
-		// TODO Auto-generated method stub
+	void deletar(int posicaoExcluir) {
+		System.out.println("O produto " + listaCliente.get(posicaoExcluir).getNome() + " foi removido com sucesso!");
+		listaCliente.remove(posicaoExcluir);
 
 	}
 
 	@Override
 	void ler() {
-		// TODO Auto-generated method stub
-
+		for(int i = 0; i < listaCliente.size(); i++) {
+			System.out.println(listaCliente.get(i));
+		}
 	}
 
-	public void buscar() {
-		
+	public void buscar(String nomeBusca) {
+		for(int i = 0; i < listaCliente.size() ; i++) {
+			if (listaCliente.get(i).getNome().equals(nomeBusca)) {
+				System.out.println("O Cliente " + listaCliente.get(i).getNome() + " foi encontrado");
+			} else {
+				System.out.println("Cliente não encontrado");
+			}
+		}
 	}
+
+
+	@Override
+	public String toString() {
+		return "Cliente [dataCadastro=" + dataCadastro + ", nome=" + nome + ", cpf=" + cpf + ", endereco=" + endereco
+				+ ", telefone=" + telefone + "]";
+	}
+	
+	
 }
+

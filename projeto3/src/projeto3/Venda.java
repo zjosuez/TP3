@@ -49,4 +49,20 @@ public class Venda{
 		this.formaPagamento = formaPagamento;
 	}
 	
+	// Methods
+	public void cadastrar() {
+		
+	}
+	
+	public void editar() {
+		
+	}
+	
+	public void ler() {
+		
+	}
+	
+	public void deletar() {
+		
+	}
 }
