@@ -79,8 +79,8 @@ public class RoupaEAcessorio {
 		this.condicaoDeUso = condicaoDeUso;
 	}
 	
-	public void getPreco() {
-		System.out.println(preco);
+	public Double getPreco() {
+		return preco;
 	}
 	
 	public void setPreco(double preco) {
@@ -105,10 +105,8 @@ public class RoupaEAcessorio {
 
 	// Methods
 	public void cadastrar() {     
-		
-		
-//		products.add(new RoupaEAcessorio(nome, categoria, modelo, tamanho, descricao, condicaoDeUso, preco, tipo, genero));
-//		System.out.println("O produto " + nome + " foi cadastrado com sucesso!");
+		products.add(new RoupaEAcessorio(nome, categoria, modelo, tamanho, descricao, condicaoDeUso, preco, tipo, genero));
+		System.out.println("O produto " + nome + " foi cadastrado com sucesso!");
 //		
 	}
 	
@@ -122,6 +120,7 @@ public class RoupaEAcessorio {
 		products.get(posicaoEditar).setPreco(preco);
 		products.get(posicaoEditar).setTipo(tipo);
 		products.get(posicaoEditar).setGenero(genero);
+		System.out.println("\nProduto editado com sucesso!");
 	}
 	
 	public void deletar(int posicaoExcluir) {
@@ -138,9 +137,9 @@ public class RoupaEAcessorio {
 	
 	@Override
 	public String toString() {
-		return "RoupaEAcessorio [nome=" + nome + ", categoria=" + categoria + ", modelo=" + modelo + ", tamanho="
-				+ tamanho + ", descricao=" + descricao + ", condicaoDeUso=" + condicaoDeUso + ", preco=" + preco
-				+ ", tipo=" + tipo + ", genero=" + genero + ", products=" + products + "]";
+		return "\n-----Dados do produto-----\nnome: " + nome + "\ncategoria: " + categoria + "\nmodelo: " + modelo + "\ntamanho: "
+				+ tamanho + "\ndescricao: " + descricao + "\ncondicaoDeUso: " + condicaoDeUso + "\npreco: " + preco
+				+ "\ntipo: " + tipo + "\ngenero: " + genero;
 	}
 
 	public void buscar(String nomeBusca) {

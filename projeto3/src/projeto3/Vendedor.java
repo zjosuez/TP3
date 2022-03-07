@@ -1,17 +1,17 @@
 package projeto3;
 
-import java.util.Date;
-
 public class Vendedor extends Pessoa {
 
 	private RoupaEAcessorio roupaeacessorio;
 	private int qtdVendas;
 	
 	// Constructor
-	public Vendedor(String nome, RoupaEAcessorio roupaeacessorio, int qtdVendas, int cpf, String endereco, int telefone) {
-		super();
+	public Vendedor(String nome, String cpf, String endereco, int telefone, RoupaEAcessorio roupaeacessorio) {
+		this.nome = nome;
+		this.cpf = cpf;
+		this.endereco = endereco;
+		this.telefone = telefone;
 		this.roupaeacessorio = roupaeacessorio;
-		this.qtdVendas = qtdVendas;
 	}
 
 	// Getters and Setters
@@ -64,26 +64,28 @@ public class Vendedor extends Pessoa {
 	}
 
 	@Override
-	void cadastrar(String nome, boolean status, String cpf, String endereco, int telefone, Date dataCadastro) {
-		// TODO Auto-generated method stub
-
+	void cadastrar(String nome, String cpf, String endereco, int telefone) {
+		setNome(nome);
+		setCpf(cpf);
+		setEndereco(endereco);
+		setTelefone(telefone);
 	}
 
 	@Override
 	void editar(String nome, String cpf, String endereco,int telefone) {
-		
-	}
-
-	@Override
-	void deletar(int posisaoExcluir) {
-		// TODO Auto-generated method stub
-
+		setNome(nome);
+		setCpf(cpf);
+		setEndereco(endereco);
+		setTelefone(telefone);
 	}
 
 	@Override
 	void ler() {
-		// TODO Auto-generated method stub
-
+		System.out.println("Nome do vendedor: " + nome + "\nCPF: " + cpf + "\nEndereco: " + endereco + "\nTelefone: " + telefone);
 	}
-
+	
+	public void verProduto() {
+		RoupaEAcessorio a = getRoupaeacessorio();
+		System.out.println(a.toString());
+	}
 }

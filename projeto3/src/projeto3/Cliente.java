@@ -69,9 +69,9 @@ public class Cliente extends Pessoa {
 
 	// Methods
 	@Override
-	void cadastrar(String nome, boolean status, String cpf, String endereco, int telefone, Date dataCadastro) {
+	void cadastrar(String nome, String cpf, String endereco, int telefone) {
 		setNome(nome);
-		setStatus(status);
+		setStatus(true);
 		setCpf(cpf);
 		setEndereco(endereco);
 		setTelefone(telefone);
@@ -88,7 +88,6 @@ public class Cliente extends Pessoa {
 		listaCliente.get(posicaoEditar).setTelefone(telefone);
 	}
 
-	@Override
 	void deletar(int posicaoExcluir) {
 		System.out.println("O produto " + listaCliente.get(posicaoExcluir).getNome() + " foi removido com sucesso!");
 		listaCliente.remove(posicaoExcluir);
@@ -103,20 +102,23 @@ public class Cliente extends Pessoa {
 	}
 
 	public void buscar(String nomeBusca) {
+		boolean aux = false;
 		for(int i = 0; i < listaCliente.size() ; i++) {
 			if (listaCliente.get(i).getNome().equals(nomeBusca)) {
+				aux = true;
 				System.out.println("O Cliente " + listaCliente.get(i).getNome() + " foi encontrado");
-			} else {
-				System.out.println("Cliente não encontrado");
 			}
+		}
+		if (aux == false) {
+			System.out.println("O cliente " + nomeBusca + " não foi encontrado");
 		}
 	}
 
 
 	@Override
 	public String toString() {
-		return "Cliente [dataCadastro=" + dataCadastro + ", nome=" + nome + ", cpf=" + cpf + ", endereco=" + endereco
-				+ ", telefone=" + telefone + "]";
+		return "-----Cliente Cadastrado-----\n Dia do cadastro: " + dataCadastro + "\nNome: " + nome + "\nCpf: " + cpf + "\nEndereco: " + endereco
+				+ "\nTelefone: " + telefone;
 	}
 	
 	

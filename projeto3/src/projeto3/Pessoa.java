@@ -1,7 +1,5 @@
 package projeto3;
 
-import java.util.Date;
-
 public abstract class Pessoa {
 	
 	protected String nome;
@@ -36,8 +34,7 @@ public abstract class Pessoa {
 	}
 	
 	// Methods
-	abstract void cadastrar(String nome, boolean status, String cpf, String endereco, int telefone, Date dataCadastro);
+	abstract void cadastrar(String nome, String cpf, String endereco, int telefone);
 	abstract void editar(String nome, String cpf, String endereco,int telefone);
-	abstract void deletar(int posicaoExcluir) ;
 	abstract void ler() ;
 }

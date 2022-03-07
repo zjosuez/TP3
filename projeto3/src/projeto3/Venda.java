@@ -1,19 +1,22 @@
 package projeto3;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 public class Venda{
 	private RoupaEAcessorio roupaeacessorio;
-	private String dataVenda;
+	private Date dataVenda;
 	private int qtdProduto;
 	private double precoTotal;
 	private String formaPagamento;
+	private ArrayList<Venda> vendas = new ArrayList<Venda>();
 	
 	// Constructor
-	public Venda(RoupaEAcessorio roupaeacessorio, String dataVenda, int qtdProduto, double precoTotal,
-			String formaPagamento) {
+	public Venda(RoupaEAcessorio roupaeacessorio, Date dataVenda, int qtdProduto,
+			String formaPagamento, double precoTotal) {
 		this.roupaeacessorio = roupaeacessorio;
 		this.dataVenda = dataVenda;
 		this.qtdProduto = qtdProduto;
-		this.precoTotal = precoTotal;
 		this.formaPagamento = formaPagamento;
 	}
 	
@@ -24,10 +27,10 @@ public class Venda{
 	public void setRoupaeacessorio(RoupaEAcessorio roupaeacessorio) {
 		this.roupaeacessorio = roupaeacessorio;
 	}
-	public String getDataVenda() {
+	public Date getDataVenda() {
 		return dataVenda;
 	}
-	public void setDataVenda(String dataVenda) {
+	public void setDataVenda(Date dataVenda) {
 		this.dataVenda = dataVenda;
 	}
 	public int getQtdProduto() {
@@ -51,18 +54,32 @@ public class Venda{
 	
 	// Methods
 	public void cadastrar() {
+		RoupaEAcessorio produtoVenda = getRoupaeacessorio();
+		Double precoVenda = roupaeacessorio.getPreco();
+		if (getQtdProduto() > 1) {
+			setPrecoTotal(precoVenda* qtdProduto);
+		} else {
+			setPrecoTotal(precoVenda);
+		}
 		
+		vendas.add(new Venda(produtoVenda, dataVenda, qtdProduto, formaPagamento, precoTotal));
 	}
 	
-	public void editar() {
-		
+	public void editar(int posicaoEditar,RoupaEAcessorio roupaeacessorio, Date dataVenda, int qtdProduto,
+			String formaPagamento) {
+		vendas.get(posicaoEditar).setRoupaeacessorio(roupaeacessorio);
+		vendas.get(posicaoEditar).setDataVenda(dataVenda);
+		vendas.get(posicaoEditar).setQtdProduto(qtdProduto);
 	}
 	
-	public void ler() {
-		
+	public void deletar(int vendaRemover) {
+		System.out.println("A venda foi removida com sucesso!");
+		vendas.remove(vendaRemover);
 	}
-	
-	public void deletar() {
-		
+
+	@Override
+	public String toString() {
+		return  "Data da venda: " + dataVenda + "\nQuantidade do produto: " + qtdProduto
+				+ "\nPreco total: " + precoTotal + "\nForma de pagamento: " + formaPagamento;
 	}
 }
