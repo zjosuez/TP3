@@ -3,7 +3,7 @@ package projeto3;
 import java.util.*;
 
 public class Cliente extends Pessoa {
-
+	private Vendedor v;
 	private Date dataCadastro;
 	private boolean status;
 	private ArrayList<Cliente> listaCliente = new ArrayList<Cliente>();
@@ -95,7 +95,7 @@ public class Cliente extends Pessoa {
 	}
 
 	@Override
-	void ler() {
+	void verPessoa() {
 		for(int i = 0; i < listaCliente.size(); i++) {
 			System.out.println(listaCliente.get(i));
 		}
@@ -114,6 +114,10 @@ public class Cliente extends Pessoa {
 		}
 	}
 
+	public void comprarProduto(Venda produtoAComprar) {
+		System.out.println("O produto " + produtoAComprar.getRoupaeacessorio().getNome() + " Foi comprado com sucesso!");
+
+	}
 
 	@Override
 	public String toString() {

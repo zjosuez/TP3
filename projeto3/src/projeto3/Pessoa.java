@@ -36,5 +36,5 @@ public abstract class Pessoa {
 	// Methods
 	abstract void cadastrar(String nome, String cpf, String endereco, int telefone);
 	abstract void editar(String nome, String cpf, String endereco,int telefone);
-	abstract void ler() ;
+	abstract void verPessoa() ;
 }

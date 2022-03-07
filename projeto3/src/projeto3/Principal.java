@@ -20,6 +20,9 @@ public class Principal {
 		vd1 = new Venda(a1, now, 1, "dinheiro", 1100);
 		
 		vd1.cadastrar();
-		System.out.println(vd1.toString());
+		c1.cadastrar("josue", "11111111", "rua sao vicente 10", 123456789);
+		v1.cadastrar("miguel", "023518497", "rua sao carlos 12", 546913728);
+		c1.comprarProduto(vd1);
+//		System.out.println(vd1.toString());
 	}
 }

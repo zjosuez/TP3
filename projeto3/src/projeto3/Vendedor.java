@@ -59,8 +59,8 @@ public class Vendedor extends Pessoa {
 		return qtdVendas;
 	}
 
-	public void setQtdVendas(int qtdVendas) {
-		this.qtdVendas = qtdVendas;
+	public void setQtdVendas() {
+		this.qtdVendas += 1;
 	}
 
 	@Override
@@ -80,8 +80,8 @@ public class Vendedor extends Pessoa {
 	}
 
 	@Override
-	void ler() {
-		System.out.println("Nome do vendedor: " + nome + "\nCPF: " + cpf + "\nEndereco: " + endereco + "\nTelefone: " + telefone);
+	void verPessoa() {
+		System.out.println("Nome do vendedor: " + nome + "\nCPF: " + cpf + "\nEndereco: " + endereco + "\nTelefone: " + telefone + "\nQuantidade de vendas" + qtdVendas);
 	}
 	
 	public void verProduto() {
