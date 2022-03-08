@@ -7,17 +7,16 @@ public class RoupaEAcessorio {
 	private String nome;
 	private String categoria;
 	private String modelo;
-	private int tamanho;
+	private String tamanho;
 	private String descricao;
 	private String condicaoDeUso;
 	private double preco;
-	private String tipo;
 	private String genero;
 	private ArrayList<RoupaEAcessorio> products = new ArrayList<RoupaEAcessorio>();
 	
 	// Constructor 
-	public RoupaEAcessorio(String nome, String categoria, String modelo, int tamanho, String descricao,
-			String condicaoDeUso, double preco, String tipo, String genero) {
+	public RoupaEAcessorio(String nome, String categoria, String modelo, String tamanho, String descricao,
+			String condicaoDeUso, double preco, String genero) {
 	
 		this.nome = nome;
 		this.categoria = categoria;
@@ -26,7 +25,6 @@ public class RoupaEAcessorio {
 		this.descricao = descricao;
 		this.condicaoDeUso = condicaoDeUso;
 		this.preco = preco;
-		this.tipo = tipo;
 		this.genero = genero;
 	}
 	
@@ -59,7 +57,7 @@ public class RoupaEAcessorio {
 		System.out.println(tamanho);
 	}
 	
-	public void setTamanho(int tamanho) {
+	public void setTamanho(String tamanho) {
 		this.tamanho = tamanho;
 	}
 	
@@ -87,14 +85,6 @@ public class RoupaEAcessorio {
 		this.preco = preco;
 	}
 	
-	public void getTipo() {
-		System.out.println(tipo);
-	}
-	
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
-	}
-	
 	public void getGenero() {
 		System.out.println(genero);
 	}
@@ -105,31 +95,18 @@ public class RoupaEAcessorio {
 
 	// Methods
 	public void cadastrar() {     
-		products.add(new RoupaEAcessorio(nome, categoria, modelo, tamanho, descricao, condicaoDeUso, preco, tipo, genero));
+		products.add(new RoupaEAcessorio(nome, categoria, modelo, tamanho, descricao, condicaoDeUso, preco, genero));
 		System.out.println("O produto " + nome + " foi cadastrado com sucesso!");
 //		
 	}
-	
-	public void editar(int posicaoEditar,String nome, String categoria, String modelo, int tamanho, String descricao, String condicaoDeUso, double preco,  String tipo, String genero) {
-		products.get(posicaoEditar).setNome(nome);
-		products.get(posicaoEditar).setCategoria(categoria);
-		products.get(posicaoEditar).setModelo(modelo);
-		products.get(posicaoEditar).setTamanho(tamanho);
-		products.get(posicaoEditar).setDescricao(descricao);
-		products.get(posicaoEditar).setCondicaoDeUso(condicaoDeUso);
-		products.get(posicaoEditar).setPreco(preco);
-		products.get(posicaoEditar).setTipo(tipo);
-		products.get(posicaoEditar).setGenero(genero);
-		System.out.println("\nProduto editado com sucesso!");
-	}
-	
+		
 	public void deletar(int posicaoExcluir) {
 		System.out.println("O produto " + products.get(posicaoExcluir).getNome() + " foi removido com sucesso!");
 		products.remove(posicaoExcluir);
 			
 	}
 	
-	public void ler() {
+	public void verRoupaEAcessorio() {
 		for(int i = 0; i < products.size(); i++) {
 			System.out.println(products.get(i));
 		}
@@ -137,17 +114,17 @@ public class RoupaEAcessorio {
 	
 	@Override
 	public String toString() {
-		return "\n-----Dados do produto-----\nnome: " + nome + "\ncategoria: " + categoria + "\nmodelo: " + modelo + "\ntamanho: "
-				+ tamanho + "\ndescricao: " + descricao + "\ncondicaoDeUso: " + condicaoDeUso + "\npreco: " + preco
-				+ "\ntipo: " + tipo + "\ngenero: " + genero;
+		return "-----Dados do produto-----\nNome: " + nome + "\nCategoria: " + categoria + "\nModelo: " + modelo + "\nTamanho: "
+				+ tamanho + "\nDescricao: " + descricao + "\nCondicao de uso: " + condicaoDeUso + "\nPreco: " + preco
+			    + "\nGenero: " + genero + "\n";
 	}
 
 	public void buscar(String nomeBusca) {
 		for(int i = 0; i < products.size() ; i++) {
 			if (products.get(i).getNome().equals(nomeBusca)) {
-				System.out.println("O produto " + products.get(i).getNome() + " foi encontrado");
+				System.out.println("O produto " + products.get(i).getNome() + " foi encontrado\n");
 			} else {
-				System.out.println("Produto não encontrado");
+				System.out.println("Produto não encontrado\n");
 			}
 		}
 	}

@@ -40,6 +40,12 @@ public class Venda{
 		this.qtdProduto = qtdProduto;
 	}
 	public double getPrecoTotal() {
+		Double precoVenda = roupaeacessorio.getPreco();
+		if (getQtdProduto() > 1) {
+			setPrecoTotal(precoVenda* qtdProduto);
+		} else {
+			setPrecoTotal(precoVenda);
+		}
 		return precoTotal;
 	}
 	public void setPrecoTotal(double precoTotal) {
@@ -70,6 +76,7 @@ public class Venda{
 		vendas.get(posicaoEditar).setRoupaeacessorio(roupaeacessorio);
 		vendas.get(posicaoEditar).setDataVenda(dataVenda);
 		vendas.get(posicaoEditar).setQtdProduto(qtdProduto);
+		vendas.get(posicaoEditar).setFormaPagamento(formaPagamento);
 	}
 	
 	public void deletar(int vendaRemover) {
@@ -79,7 +86,7 @@ public class Venda{
 
 	@Override
 	public String toString() {
-		return  "Data da venda: " + dataVenda + "\nQuantidade do produto: " + qtdProduto
-				+ "\nPreco total: " + precoTotal + "\nForma de pagamento: " + formaPagamento;
+		return  "Data da venda: " + dataVenda + "\nQuantidade do produto: " + vendas.get(0).getQtdProduto()
+				+ "\nPreco total: " + vendas.get(0).getPrecoTotal() + "\nForma de pagamento: " + vendas.get(0).getFormaPagamento();
 	}
 }

@@ -6,12 +6,8 @@ public class Vendedor extends Pessoa {
 	private int qtdVendas;
 	
 	// Constructor
-	public Vendedor(String nome, String cpf, String endereco, int telefone, RoupaEAcessorio roupaeacessorio) {
-		this.nome = nome;
-		this.cpf = cpf;
-		this.endereco = endereco;
-		this.telefone = telefone;
-		this.roupaeacessorio = roupaeacessorio;
+	public Vendedor() {
+
 	}
 
 	// Getters and Setters
@@ -48,6 +44,7 @@ public class Vendedor extends Pessoa {
 	}
 	
 	public RoupaEAcessorio getRoupaeacessorio() {
+		
 		return roupaeacessorio;
 	}
 
@@ -69,6 +66,7 @@ public class Vendedor extends Pessoa {
 		setCpf(cpf);
 		setEndereco(endereco);
 		setTelefone(telefone);
+		System.out.println("O vendedor " + getNome() + " Foi cadastrado com sucesso!\n");
 	}
 
 	@Override
@@ -81,11 +79,6 @@ public class Vendedor extends Pessoa {
 
 	@Override
 	void verPessoa() {
-		System.out.println("Nome do vendedor: " + nome + "\nCPF: " + cpf + "\nEndereco: " + endereco + "\nTelefone: " + telefone + "\nQuantidade de vendas" + qtdVendas);
-	}
-	
-	public void verProduto() {
-		RoupaEAcessorio a = getRoupaeacessorio();
-		System.out.println(a.toString());
+		System.out.println("-----Vendedor-----\nNome do vendedor: " + nome + "\nCPF: " + cpf + "\nEndereco: " + endereco + "\nTelefone: " + telefone + "\n");
 	}
 }

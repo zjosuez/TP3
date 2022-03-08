@@ -3,18 +3,15 @@ package projeto3;
 import java.util.*;
 
 public class Cliente extends Pessoa {
-	private Vendedor v;
 	private Date dataCadastro;
 	private boolean status;
 	private ArrayList<Cliente> listaCliente = new ArrayList<Cliente>();
+	
+	GregorianCalendar d = new GregorianCalendar();
+	Date now = d.getTime();
 	// Constructor
-	public Cliente(String nome, boolean status, String cpf, String endereco, int telefone, Date dataCadastro) {
-		this.nome = nome;
-		this.status = false;
-		this.cpf = cpf;
-		this.endereco = endereco;
-		this.telefone = telefone;
-		this.dataCadastro = dataCadastro;
+	public Cliente() {
+
 	}
 	
 	
@@ -52,6 +49,7 @@ public class Cliente extends Pessoa {
 	}
 	
 	public Date getDataCadastro() {
+		
 		return dataCadastro;
 	}
 
@@ -75,19 +73,16 @@ public class Cliente extends Pessoa {
 		setCpf(cpf);
 		setEndereco(endereco);
 		setTelefone(telefone);
-		setDataCadastro(dataCadastro);
-		listaCliente.add(new Cliente(nome, status, cpf, endereco, telefone, dataCadastro));
+		setDataCadastro(now);
 		System.out.println("O cliente " + nome + " foi cadastrado com sucesso!");
 	}
 	@Override
 	void editar(String nome, String cpf, String endereco,int telefone) {
-		int posicaoEditar = 0;
-		listaCliente.get(posicaoEditar).setNome(nome);
-		listaCliente.get(posicaoEditar).setCpf(cpf);
-		listaCliente.get(posicaoEditar).setEndereco(endereco);
-		listaCliente.get(posicaoEditar).setTelefone(telefone);
+		setNome(nome);
+		setCpf(cpf);
+		setEndereco(endereco);
+		setTelefone(telefone);
 	}
-
 	void deletar(int posicaoExcluir) {
 		System.out.println("O produto " + listaCliente.get(posicaoExcluir).getNome() + " foi removido com sucesso!");
 		listaCliente.remove(posicaoExcluir);
@@ -96,35 +91,27 @@ public class Cliente extends Pessoa {
 
 	@Override
 	void verPessoa() {
-		for(int i = 0; i < listaCliente.size(); i++) {
-			System.out.println(listaCliente.get(i));
-		}
+		System.out.println("-----Cliente-----\nDia do cadastro: " + dataCadastro + "\nNome: " + nome + "\nCpf: " + cpf + "\nEndereco: " + endereco
+				+ "\nTelefone: " + telefone + "\n");
 	}
 
 	public void buscar(String nomeBusca) {
-		boolean aux = false;
-		for(int i = 0; i < listaCliente.size() ; i++) {
-			if (listaCliente.get(i).getNome().equals(nomeBusca)) {
-				aux = true;
-				System.out.println("O Cliente " + listaCliente.get(i).getNome() + " foi encontrado");
-			}
-		}
-		if (aux == false) {
-			System.out.println("O cliente " + nomeBusca + " não foi encontrado");
+		if (nomeBusca.equals(getNome())) {
+			System.out.println("O cliente " + nomeBusca + " Foi encontrado.\n");
+		} else {
+			System.out.println("O cliente " + nomeBusca + " Nao foi encontrado\n");
 		}
 	}
 
 	public void comprarProduto(Venda produtoAComprar) {
-		System.out.println("O produto " + produtoAComprar.getRoupaeacessorio().getNome() + " Foi comprado com sucesso!");
+		System.out.println("\nO produto " + produtoAComprar.getRoupaeacessorio().getNome() + " Foi comprado com sucesso!");
 
 	}
 
 	@Override
 	public String toString() {
-		return "-----Cliente Cadastrado-----\n Dia do cadastro: " + dataCadastro + "\nNome: " + nome + "\nCpf: " + cpf + "\nEndereco: " + endereco
-				+ "\nTelefone: " + telefone;
+		return "-----Cliente-----\nDia do cadastro: " + dataCadastro + "\nNome: " + nome + "\nCpf: " + cpf + "\nEndereco: " + endereco
+				+ "\nTelefone: " + telefone + "\n";
 	}
-	
-	
 }
 
