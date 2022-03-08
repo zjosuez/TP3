@@ -31,8 +31,9 @@ public class Principal {
 		c1.verPessoa();
 		a1.verRoupaEAcessorio();
 		
-		a1.buscar("Camisa");
-
+		a1.buscarNome("Camisa");
+		a1.buscarCategoria("Roupas");
+		
 		System.out.println(vd1.toString());
 		c1.comprarProduto(vd1);
 		

@@ -37,8 +37,8 @@ public class RoupaEAcessorio {
 		this.nome = nome;
 	}
 	
-	public void getCategoria() {
-		System.out.println(categoria);
+	public String getCategoria() {
+		return categoria;
 	}
 	
 	public void setCategoria(String categoria) {
@@ -119,12 +119,22 @@ public class RoupaEAcessorio {
 			    + "\nGenero: " + genero + "\n";
 	}
 
-	public void buscar(String nomeBusca) {
+	public void buscarNome(String nomeBusca) {
 		for(int i = 0; i < products.size() ; i++) {
 			if (products.get(i).getNome().equals(nomeBusca)) {
 				System.out.println("O produto " + products.get(i).getNome() + " foi encontrado\n");
 			} else {
-				System.out.println("Produto não encontrado\n");
+				System.out.println("Produto nao encontrado\n");
+			}
+		}
+	}
+	
+	public void buscarCategoria(String nomeCategoria) {
+		for(int i = 0; i < products.size() ; i++) {
+			if (products.get(i).getCategoria().equals(nomeCategoria)) {
+				System.out.println("A categoria " + products.get(i).getCategoria() + " foi encontrada\n");
+			} else {
+				System.out.println("Essa categoria nao foi encontrada\n");
 			}
 		}
 	}
