@@ -5,7 +5,6 @@ import java.util.*;
 public class Cliente extends Pessoa {
 	private Date dataCadastro;
 	private boolean status;
-	private ArrayList<Cliente> listaCliente = new ArrayList<Cliente>();
 	
 	GregorianCalendar d = new GregorianCalendar();
 	Date now = d.getTime();
@@ -82,11 +81,6 @@ public class Cliente extends Pessoa {
 		setCpf(cpf);
 		setEndereco(endereco);
 		setTelefone(telefone);
-	}
-	void deletar(int posicaoExcluir) {
-		System.out.println("O produto " + listaCliente.get(posicaoExcluir).getNome() + " foi removido com sucesso!");
-		listaCliente.remove(posicaoExcluir);
-
 	}
 
 	@Override
