@@ -1,4 +1,4 @@
-package projeto3;
+package model;
 
 import java.util.*;
 
@@ -66,7 +66,7 @@ public class Cliente extends Pessoa {
 
 	// Methods
 	@Override
-	void cadastrar(String nome, String cpf, String endereco, int telefone) {
+	public void cadastrar(String nome, String cpf, String endereco, int telefone) {
 		setNome(nome);
 		setStatus(true);
 		setCpf(cpf);
@@ -76,7 +76,7 @@ public class Cliente extends Pessoa {
 		System.out.println("O cliente " + nome + " foi cadastrado com sucesso!");
 	}
 	@Override
-	void editar(String nome, String cpf, String endereco,int telefone) {
+	public void editar(String nome, String cpf, String endereco,int telefone) {
 		setNome(nome);
 		setCpf(cpf);
 		setEndereco(endereco);
@@ -84,7 +84,7 @@ public class Cliente extends Pessoa {
 	}
 
 	@Override
-	void verPessoa() {
+	public void verPessoa() {
 		System.out.println("-----Cliente-----\nDia do cadastro: " + dataCadastro + "\nNome: " + nome + "\nCpf: " + cpf + "\nEndereco: " + endereco
 				+ "\nTelefone: " + telefone + "\n");
 	}

@@ -1,4 +1,4 @@
-package projeto3;
+package model;
 
 public class Vendedor extends Pessoa {
 
@@ -61,7 +61,7 @@ public class Vendedor extends Pessoa {
 	}
 
 	@Override
-	void cadastrar(String nome, String cpf, String endereco, int telefone) {
+	public void cadastrar(String nome, String cpf, String endereco, int telefone) {
 		setNome(nome);
 		setCpf(cpf);
 		setEndereco(endereco);
@@ -70,7 +70,7 @@ public class Vendedor extends Pessoa {
 	}
 
 	@Override
-	void editar(String nome, String cpf, String endereco,int telefone) {
+	public void editar(String nome, String cpf, String endereco,int telefone) {
 		setNome(nome);
 		setCpf(cpf);
 		setEndereco(endereco);
@@ -78,7 +78,7 @@ public class Vendedor extends Pessoa {
 	}
 
 	@Override
-	void verPessoa() {
+	public void verPessoa() {
 		System.out.println("-----Vendedor-----\nNome do vendedor: " + nome + "\nCPF: " + cpf + "\nEndereco: " + endereco + "\nTelefone: " + telefone + "\n");
 	}
 }

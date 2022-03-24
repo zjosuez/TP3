@@ -1,6 +1,11 @@
-package projeto3;
+package controler;
 
 import java.util.*;
+
+import model.Cliente;
+import model.RoupaEAcessorio;
+import model.Venda;
+import model.Vendedor;
 
 public class Principal {
 	static RoupaEAcessorio a1;

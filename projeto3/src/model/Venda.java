@@ -1,4 +1,4 @@
-package projeto3;
+package model;
 
 import java.util.ArrayList;
 import java.util.Date;
