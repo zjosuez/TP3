@@ -1,6 +1,5 @@
 package model;
 
-import java.util.ArrayList;
 
 public class RoupaEAcessorio {
 	
@@ -12,7 +11,7 @@ public class RoupaEAcessorio {
 	private String condicaoDeUso;
 	private double preco;
 	private String genero;
-	private ArrayList<RoupaEAcessorio> products = new ArrayList<RoupaEAcessorio>();
+
 	
 	// Constructor 
 	public RoupaEAcessorio(String nome, String categoria, String modelo, String tamanho, String descricao,
@@ -94,48 +93,5 @@ public class RoupaEAcessorio {
 	}
 
 	// Methods
-	public void cadastrar() {     
-		products.add(new RoupaEAcessorio(nome, categoria, modelo, tamanho, descricao, condicaoDeUso, preco, genero));
-		System.out.println("O produto " + nome + " foi cadastrado com sucesso!");
-//		
-	}
-		
-	public void deletar(int posicaoExcluir) {
-		System.out.println("O produto " + products.get(posicaoExcluir).getNome() + " foi removido com sucesso!");
-		products.remove(posicaoExcluir);
-			
-	}
-	
-	public void verRoupaEAcessorio() {
-		for(int i = 0; i < products.size(); i++) {
-			System.out.println(products.get(i));
-		}
-	}
-	
-	@Override
-	public String toString() {
-		return "-----Dados do produto-----\nNome: " + nome + "\nCategoria: " + categoria + "\nModelo: " + modelo + "\nTamanho: "
-				+ tamanho + "\nDescricao: " + descricao + "\nCondicao de uso: " + condicaoDeUso + "\nPreco: " + preco
-			    + "\nGenero: " + genero + "\n";
-	}
 
-	public void buscarNome(String nomeBusca) {
-		for(int i = 0; i < products.size() ; i++) {
-			if (products.get(i).getNome().equals(nomeBusca)) {
-				System.out.println("O produto " + products.get(i).getNome() + " foi encontrado\n");
-			} else {
-				System.out.println("Produto nao encontrado\n");
-			}
-		}
-	}
-	
-	public void buscarCategoria(String nomeCategoria) {
-		for(int i = 0; i < products.size() ; i++) {
-			if (products.get(i).getCategoria().equals(nomeCategoria)) {
-				System.out.println("A categoria " + products.get(i).getCategoria() + " foi encontrada\n");
-			} else {
-				System.out.println("Essa categoria nao foi encontrada\n");
-			}
-		}
-	}
 }
