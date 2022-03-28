@@ -37,6 +37,7 @@ public class ViewMenu extends JFrame implements ActionListener{
 		janela.setSize(500, 350);
 		janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		janela.setVisible(true);
+		janela.setResizable(false);
 			
 		}
 	public static void main(String[] args) {

@@ -68,6 +68,7 @@ public class MenuCliente extends JFrame implements ActionListener {
 		janelaCliente.setSize(500, 420);
 		janelaCliente.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		janelaCliente.setVisible(true);
+		janelaCliente.setResizable(false);
 	}
 	
 	

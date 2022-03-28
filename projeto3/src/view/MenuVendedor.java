@@ -54,10 +54,11 @@ public class MenuVendedor extends JFrame implements ActionListener {
 		janelaVendedor.setSize(475, 390);
 		janelaVendedor.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		janelaVendedor.setVisible(true);
+		janelaVendedor.setResizable(false);
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
-Object src = e.getSource();
+		Object src = e.getSource();
 		
 		if(src == cadastrarVendedor) {
 			JOptionPane.showMessageDialog(null, 

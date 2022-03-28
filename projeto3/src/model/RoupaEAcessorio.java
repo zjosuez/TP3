@@ -27,6 +27,13 @@ public class RoupaEAcessorio {
 		this.genero = genero;
 	}
 	
+	@Override
+	public String toString() {
+		return "RoupaEAcessorio [nome=" + nome + ", categoria=" + categoria + ", modelo=" + modelo + ", tamanho="
+				+ tamanho + ", descricao=" + descricao + ", condicaoDeUso=" + condicaoDeUso + ", preco=" + preco
+				+ ", genero=" + genero + "]";
+	}
+
 	// Getters and setters
 	public String getNome() {
 		return nome;
