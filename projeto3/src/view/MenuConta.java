@@ -35,51 +35,51 @@ public class MenuConta extends JFrame implements ActionListener{
 		janelaViewConta = new JFrame("Menu Conta");
 		
 		// titulo da janela
-		tituloViewConta = new JLabel("Cadastro De Clientes");
+		tituloViewConta = new JLabel("Conta");
 		tituloViewConta.setFont(new Font("Arial", Font.BOLD, 18));
-		tituloViewConta.setBounds(168,19,245,30);
+		tituloViewConta.setBounds(260,10,245,30);
 		janelaViewConta.add(tituloViewConta);
 		
 		// box de area texto
 		areaTexto = new JTextArea(cliente.toString());
-		areaTexto.setBounds(10, 11, 300, 204);
+		areaTexto.setBounds(10, 150, 300, 204);
 		areaTexto.setEditable(false);
 		janelaViewConta.add(areaTexto);
 		
 		// Criando JButton Mostrar detalhes
 		mostrarDetalhesBtn = new JButton("Mostrar Detalhes");
-		mostrarDetalhesBtn.setBounds(325,200,180,30);
+		mostrarDetalhesBtn.setBounds(325,165,180,30);
 		mostrarDetalhesBtn.addActionListener(this);
 		janelaViewConta.add(mostrarDetalhesBtn);
 				
 		// Criando JButton excluir
 		excluirBtn = new JButton("Excluir");
-		excluirBtn.setBounds(325, 250, 180, 30);
+		excluirBtn.setBounds(325, 215, 180, 30);
 		excluirBtn.addActionListener(this);
 		janelaViewConta.add(excluirBtn);
 		
 		// Criando JButton editar
 		editarBtn = new JButton("Editar");
-		editarBtn.setBounds(325,300,180,30);
+		editarBtn.setBounds(325,265,180,30);
 		editarBtn.addActionListener(this);
 		janelaViewConta.add(editarBtn);
 						
 		// Criando JButton voltar
 		voltarBtn = new JButton("Voltar");
-		voltarBtn.setBounds(325, 350, 180, 30);
+		voltarBtn.setBounds(325, 315, 180, 30);
 		voltarBtn.addActionListener(this);
 		janelaViewConta.add(voltarBtn);
 		
 		// Criando ComboBox
 		buscarCliente = new JComboBox<>();
-		buscarCliente.setBounds(219, 227, 170, 22);
+		buscarCliente.setBounds(10, 60, 170, 22);
 		buscarCliente.setModel(controller.atualizarClientes());
 		janelaViewConta.add(buscarCliente);
 		buscarCliente.addItem("Selecionar Clientes");
 		
 		// criacao do jframe
 		janelaViewConta.setLayout(null);
-		janelaViewConta.setSize(750, 580);
+		janelaViewConta.setSize(600, 500);
 		janelaViewConta.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		janelaViewConta.setVisible(true);
 		janelaViewConta.setResizable(false);
@@ -109,10 +109,15 @@ public class MenuConta extends JFrame implements ActionListener{
 		return buscarCliente;
 	}
 
+	public JFrame getJanelaViewConta() {
+		return janelaViewConta;
+	}
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
 		this.controller.executaBotao(e.getSource());
+	
 	}
 
 }

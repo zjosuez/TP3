@@ -135,7 +135,6 @@ public class CadastraCliente extends JFrame implements ActionListener{
 			if(src == cadastrarbtn) {
 				controller.CadastrarCliente();
 				JOptionPane.showMessageDialog(null, "O cadastro foi realizado com sucesso!", null, JOptionPane.INFORMATION_MESSAGE);
-				System.out.println(Dados.getCliente());
 				new MenuCliente();
 				janelaCadastraCliente.setVisible(false);
 			}
