@@ -35,11 +35,11 @@ public class Vendedor extends Pessoa {
 		this.endereco = endereco;
 	}
 	
-	public int getTelefone() {
+	public String getTelefone() {
 		return telefone;
 	}
 	
-	public void setTelefone(int telefone) {
+	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
 	
@@ -60,25 +60,25 @@ public class Vendedor extends Pessoa {
 		this.qtdVendas += 1;
 	}
 
-	@Override
-	public void cadastrar(String nome, String cpf, String endereco, int telefone) {
-		setNome(nome);
-		setCpf(cpf);
-		setEndereco(endereco);
-		setTelefone(telefone);
-		System.out.println("O vendedor " + getNome() + " Foi cadastrado com sucesso!\n");
-	}
-
-	@Override
-	public void editar(String nome, String cpf, String endereco,int telefone) {
-		setNome(nome);
-		setCpf(cpf);
-		setEndereco(endereco);
-		setTelefone(telefone);
-	}
-
-	@Override
-	public void verPessoa() {
-		System.out.println("-----Vendedor-----\nNome do vendedor: " + nome + "\nCPF: " + cpf + "\nEndereco: " + endereco + "\nTelefone: " + telefone + "\n");
-	}
+//	@Override
+//	public void cadastrar(String nome, String cpf, String endereco, int telefone) {
+//		setNome(nome);
+//		setCpf(cpf);
+//		setEndereco(endereco);
+//		setTelefone(telefone);
+//		System.out.println("O vendedor " + getNome() + " Foi cadastrado com sucesso!\n");
+//	}
+//
+//	@Override
+//	public void editar(String nome, String cpf, String endereco,int telefone) {
+//		setNome(nome);
+//		setCpf(cpf);
+//		setEndereco(endereco);
+//		setTelefone(telefone);
+//	}
+//
+//	@Override
+//	public void verPessoa() {
+//		System.out.println("-----Vendedor-----\nNome do vendedor: " + nome + "\nCPF: " + cpf + "\nEndereco: " + endereco + "\nTelefone: " + telefone + "\n");
+//	}
 }

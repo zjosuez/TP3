@@ -29,9 +29,9 @@ public class RoupaEAcessorio {
 	
 	@Override
 	public String toString() {
-		return "RoupaEAcessorio [nome=" + nome + ", categoria=" + categoria + ", modelo=" + modelo + ", tamanho="
-				+ tamanho + ", descricao=" + descricao + ", condicaoDeUso=" + condicaoDeUso + ", preco=" + preco
-				+ ", genero=" + genero + "]";
+		return "nome=" + nome + "\n categoria=" + categoria + "\n modelo=" + modelo + "\n tamanho="
+				+ tamanho + "\n descricao=" + descricao + "\n condicaoDeUso=" + condicaoDeUso + "\n preco=" + preco
+				+ "\n genero=" + genero;
 	}
 
 	// Getters and setters
@@ -98,7 +98,5 @@ public class RoupaEAcessorio {
 	public void setGenero(String genero) {
 		this.genero = genero;
 	}
-
-	// Methods
 
 }

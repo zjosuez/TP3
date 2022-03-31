@@ -5,7 +5,7 @@ public abstract class Pessoa {
 	protected String nome;
 	protected String cpf;
 	protected String endereco;
-	protected int telefone;
+	protected String telefone;
 	
 	// Getters and Setters
 	public String getNome() {
@@ -26,15 +26,12 @@ public abstract class Pessoa {
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
-	public int getTelefone() {
+	public String getTelefone() {
 		return telefone;
 	}
-	public void setTelefone(int telefone) {
+	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
 	
-	// Methods
-	abstract void cadastrar(String nome, String cpf, String endereco, int telefone);
-	abstract void editar(String nome, String cpf, String endereco,int telefone);
-	abstract void verPessoa() ;
+	
 }

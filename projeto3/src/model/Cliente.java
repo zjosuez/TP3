@@ -3,14 +3,17 @@ package model;
 import java.util.*;
 
 public class Cliente extends Pessoa {
-	private Date dataCadastro;
+	
 	private boolean status;
 	
-	GregorianCalendar d = new GregorianCalendar();
-	Date now = d.getTime();
+	
 	// Constructor
-	public Cliente() {
-
+	public Cliente(String nome, String cpf, String endereco, String telefone) {
+		this.nome = nome;
+		this.cpf = cpf;
+		this.endereco = endereco;
+		this.telefone = telefone;
+		
 	}
 	
 	
@@ -39,21 +42,12 @@ public class Cliente extends Pessoa {
 		this.endereco = endereco;
 	}
 	
-	public int getTelefone() {
+	public String getTelefone() {
 		return telefone;
 	}
 	
-	public void setTelefone(int telefone) {
+	public void setTelefone(String telefone) {
 		this.telefone = telefone;
-	}
-	
-	public Date getDataCadastro() {
-		
-		return dataCadastro;
-	}
-
-	public void setDataCadastro(Date dataCadastro) {
-		this.dataCadastro = dataCadastro;
 	}
 
 	public boolean isStatus() {
@@ -65,29 +59,23 @@ public class Cliente extends Pessoa {
 	}
 
 	// Methods
-	@Override
-	public void cadastrar(String nome, String cpf, String endereco, int telefone) {
-		setNome(nome);
-		setStatus(true);
-		setCpf(cpf);
-		setEndereco(endereco);
-		setTelefone(telefone);
-		setDataCadastro(now);
-		System.out.println("O cliente " + nome + " foi cadastrado com sucesso!");
-	}
-	@Override
-	public void editar(String nome, String cpf, String endereco,int telefone) {
-		setNome(nome);
-		setCpf(cpf);
-		setEndereco(endereco);
-		setTelefone(telefone);
-	}
-
-	@Override
-	public void verPessoa() {
-		System.out.println("-----Cliente-----\nDia do cadastro: " + dataCadastro + "\nNome: " + nome + "\nCpf: " + cpf + "\nEndereco: " + endereco
-				+ "\nTelefone: " + telefone + "\n");
-	}
+//	@Override
+//	public void cadastrar(String nome, String cpf, String endereco, int telefone) {
+//		
+//	}
+//	@Override
+//	public void editar(String nome, String cpf, String endereco,int telefone) {
+//		setNome(nome);
+//		setCpf(cpf);
+//		setEndereco(endereco);
+//		setTelefone(telefone);
+//	}
+//
+//	@Override
+//	public void verPessoa() {
+//		System.out.println("-----Cliente-----\nDia do cadastro: " + dataCadastro + "\nNome: " + nome + "\nCpf: " + cpf + "\nEndereco: " + endereco
+//				+ "\nTelefone: " + telefone + "\n");
+//	}
 
 	public void buscar(String nomeBusca) {
 		if (nomeBusca.equals(getNome())) {
@@ -104,7 +92,7 @@ public class Cliente extends Pessoa {
 
 	@Override
 	public String toString() {
-		return "-----Cliente-----\nDia do cadastro: " + dataCadastro + "\nNome: " + nome + "\nCpf: " + cpf + "\nEndereco: " + endereco
+		return "-----Cliente----- " + "\nNome: " + nome + "\nCpf: " + cpf + "\nEndereco: " + endereco
 				+ "\nTelefone: " + telefone + "\n";
 	}
 }

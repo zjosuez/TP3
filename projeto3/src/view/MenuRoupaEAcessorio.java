@@ -71,15 +71,13 @@ public class MenuRoupaEAcessorio extends JFrame implements ActionListener{
 		Object src = e.getSource();
 		
 		if(src == cadastrarProduto) {
-			new CadastrarRoupaEAcessorio();
+			new CadastraRoupaEAcessorio();
 			janelaProduto.setVisible(false);
 		}
 		
 		if(src == deletarProduto) {
-			JOptionPane.showMessageDialog(null, 
-					"Ainda precisam ser implementadas as funcionalidades\n"
-					+ "relacionadas a curso e a matricula", null, 
-					JOptionPane.INFORMATION_MESSAGE);
+			new DeletarRoupaEAcessorio();
+			janelaProduto.setVisible(false);
 		}
 		
 //		if(src == buscarNome) {

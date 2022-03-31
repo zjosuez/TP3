@@ -14,7 +14,7 @@ public class MenuCliente extends JFrame implements ActionListener {
 	private final JFrame janelaCliente;
 	private final JLabel tituloMenuCliente;
 	private final JButton cadastrarCliente;
-	private final JButton deletarCliente;
+	private final JButton mostrarContaCliente;
 	private final JButton editarCliente;
 	private final JButton buscarNomeCliente;
 	private final JButton comprarProduto;
@@ -31,9 +31,9 @@ public class MenuCliente extends JFrame implements ActionListener {
 		cadastrarCliente.addActionListener(this);
 		
 		// Cria botao deletar
-		deletarCliente = new JButton("Deletar Cliente");
-		deletarCliente.setBounds(145,120,200,30);
-		deletarCliente.addActionListener(this);
+		mostrarContaCliente = new JButton("Mostrar Conta");
+		mostrarContaCliente.setBounds(145,120,200,30);
+		mostrarContaCliente.addActionListener(this);
 		
 		// Cria botao editar cliente
 		editarCliente = new JButton("Editar Cliente");
@@ -60,7 +60,7 @@ public class MenuCliente extends JFrame implements ActionListener {
 		janelaCliente.setLayout(null);
 		janelaCliente.add(tituloMenuCliente);
 		janelaCliente.add(cadastrarCliente);
-		janelaCliente.add(deletarCliente);
+		janelaCliente.add(mostrarContaCliente);
 		janelaCliente.add(editarCliente);
 		janelaCliente.add(buscarNomeCliente);
 		janelaCliente.add(comprarProduto);
@@ -78,17 +78,13 @@ public class MenuCliente extends JFrame implements ActionListener {
 Object src = e.getSource();
 		
 		if(src == cadastrarCliente) {
-			JOptionPane.showMessageDialog(null, 
-					"Ainda precisam ser implementadas as funcionalidades\n"
-					+ "relacionadas a curso e a matricula", null, 
-					JOptionPane.INFORMATION_MESSAGE);
+			new CadastraCliente();
+			janelaCliente.setVisible(false);
 		}
 		
-		if(src == deletarCliente) {
-			JOptionPane.showMessageDialog(null, 
-					"Ainda precisam ser implementadas as funcionalidades\n"
-					+ "relacionadas a curso e a matricula", null, 
-					JOptionPane.INFORMATION_MESSAGE);
+		if(src == mostrarContaCliente) {
+			new MenuConta();
+			janelaCliente.setVisible(false);
 		}
 		
 		if(src == editarCliente) {
