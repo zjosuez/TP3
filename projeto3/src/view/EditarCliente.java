@@ -38,7 +38,7 @@ public class EditarCliente extends JFrame implements ActionListener{
         janelaEditarCliente = new JFrame("Menu editar");
         
      // titulo da janela
-     		tituloEditarCliente = new JLabel("Cadastro De Clientes");
+     		tituloEditarCliente = new JLabel("Editar Cliente");
      		tituloEditarCliente.setFont(new Font("Arial", Font.BOLD, 18));
      		tituloEditarCliente.setBounds(168,19,245,30);
      		janelaEditarCliente.add(tituloEditarCliente);
@@ -67,7 +67,7 @@ public class EditarCliente extends JFrame implements ActionListener{
      		telefoneCliente.setBounds(20, 220, 154, 14);
      		janelaEditarCliente.add(telefoneCliente);
      		
-     	// Criacao da JText nome
+     		// Criacao da JText nome
     		nomeTexto = new JTextField(cliente.getNome());
     		nomeTexto.setColumns(10);
     		nomeTexto.setBounds(20, 95, 250, 22);

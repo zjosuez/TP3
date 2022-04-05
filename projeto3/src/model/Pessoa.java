@@ -1,5 +1,11 @@
 package model;
 
+/**
+ * Classe responsavel pela abstracao de Pessoa.
+ * 
+ * @author Josue Teixeira Santana	
+ *
+ */
 public abstract class Pessoa {
 	
 	protected String nome;
@@ -7,7 +13,10 @@ public abstract class Pessoa {
 	protected String endereco;
 	protected String telefone;
 	
-	// Getters and Setters
+	/**
+	 * Todos os metodos (getters e setters) referente aos atributos da classe
+	 * 
+	 */
 	public String getNome() {
 		return nome;
 	}

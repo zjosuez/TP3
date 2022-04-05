@@ -11,7 +11,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import controller.ControllerCliente;
-import model.Dados;
 
 public class CadastraCliente extends JFrame implements ActionListener{
 	

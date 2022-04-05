@@ -1,13 +1,24 @@
 package model;
 
-import java.util.*;
-
+/**
+ * Classe que contem as informacoes do Cliente
+ * Essa classe herda os atributos e metodos da classe Pessoa
+ * @see Pessoa
+ * 
+ * @author Josue Teixeira Santana
+ */
 public class Cliente extends Pessoa {
 	
 	private boolean status;
 	
-	
-	// Constructor
+	/**
+	 * Contrutor da classe Cliente
+	 * 
+	 * @param nome - nome do cliente	
+	 * @param cpf - cpf do cliente
+	 * @param endereco - endereco do cliente
+	 * @param telefone - telefone do cliente
+	 */
 	public Cliente(String nome, String cpf, String endereco, String telefone) {
 		this.nome = nome;
 		this.cpf = cpf;
@@ -17,7 +28,9 @@ public class Cliente extends Pessoa {
 	}
 	
 	
-	//Getters and Setters
+	/**
+	 * Metodos getters e setters referente aos atributos da classe Cliente
+	 */
 	public String getNome() {
 		return nome;
 	}
@@ -58,38 +71,10 @@ public class Cliente extends Pessoa {
 		this.status = status;
 	}
 
-	// Methods
-//	@Override
-//	public void cadastrar(String nome, String cpf, String endereco, int telefone) {
-//		
-//	}
-//	@Override
-//	public void editar(String nome, String cpf, String endereco,int telefone) {
-//		setNome(nome);
-//		setCpf(cpf);
-//		setEndereco(endereco);
-//		setTelefone(telefone);
-//	}
-//
-//	@Override
-//	public void verPessoa() {
-//		System.out.println("-----Cliente-----\nDia do cadastro: " + dataCadastro + "\nNome: " + nome + "\nCpf: " + cpf + "\nEndereco: " + endereco
-//				+ "\nTelefone: " + telefone + "\n");
-//	}
-
-	public void buscar(String nomeBusca) {
-		if (nomeBusca.equals(getNome())) {
-			System.out.println("O cliente " + nomeBusca + " Foi encontrado.\n");
-		} else {
-			System.out.println("O cliente " + nomeBusca + " Nao foi encontrado\n");
-		}
-	}
-
-	public void comprarProduto(Venda produtoAComprar) {
-		System.out.println("\nO produto " + produtoAComprar.getRoupaeacessorio().getNome() + " Foi comprado com sucesso!");
-
-	}
-
+	/**
+	 * Metodo responsavel por sobrescrever o objeto
+	 * @return - Retorna uma String contento os dados do cliente
+	 */
 	@Override
 	public String toString() {
 		return "-----Cliente----- " + "\nNome: " + nome + "\nCpf: " + cpf + "\nEndereco: " + endereco

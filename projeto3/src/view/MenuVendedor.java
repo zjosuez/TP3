@@ -14,7 +14,7 @@ public class MenuVendedor extends JFrame implements ActionListener {
 	private final JFrame janelaVendedor;
 	private final JLabel tituloVendedor;
 	private final JButton cadastrarVendedor;
-	private final JButton editarVendedor;
+	private final JButton minhaConta;
 	private final JButton vendas;
 	private final JButton voltar;
 	
@@ -29,9 +29,9 @@ public class MenuVendedor extends JFrame implements ActionListener {
 		cadastrarVendedor.addActionListener(this);
 		
 		// Cria botao deletar
-		editarVendedor= new JButton("Editar");
-		editarVendedor.setBounds(135,120,200,30);
-		editarVendedor.addActionListener(this);
+		minhaConta= new JButton("Minha conta");
+		minhaConta.setBounds(135,120,200,30);
+		minhaConta.addActionListener(this);
 		
 		// Cria botao buscar nome
 		vendas = new JButton("Vendas");
@@ -48,7 +48,7 @@ public class MenuVendedor extends JFrame implements ActionListener {
 		janelaVendedor.setLayout(null);
 		janelaVendedor.add(tituloVendedor);
 		janelaVendedor.add(cadastrarVendedor);
-		janelaVendedor.add(editarVendedor);
+		janelaVendedor.add(minhaConta);
 		janelaVendedor.add(vendas);
 		janelaVendedor.add(voltar);
 		janelaVendedor.setSize(475, 390);
@@ -61,17 +61,15 @@ public class MenuVendedor extends JFrame implements ActionListener {
 		Object src = e.getSource();
 		
 		if(src == cadastrarVendedor) {
-			JOptionPane.showMessageDialog(null, 
-					"Ainda precisam ser implementadas as funcionalidades\n"
-					+ "relacionadas a curso e a matricula", null, 
-					JOptionPane.INFORMATION_MESSAGE);
+			
+			new CadastraVendedor();
+			janelaVendedor.setVisible(false);
 		}
 		
-		if(src == editarVendedor) {
-			JOptionPane.showMessageDialog(null, 
-					"Ainda precisam ser implementadas as funcionalidades\n"
-					+ "relacionadas a curso e a matricula", null, 
-					JOptionPane.INFORMATION_MESSAGE);
+		if(src == minhaConta) {
+			
+			new MenuContaVendedor();
+			janelaVendedor.setVisible(false);
 		}
 		
 		if(src == vendas) {

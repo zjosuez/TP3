@@ -9,6 +9,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
+import model.Dados;
+
 public class ViewMenu extends JFrame implements ActionListener{
 
 	private final static JFrame janela = new JFrame("Tela Principal");
@@ -18,6 +20,15 @@ public class ViewMenu extends JFrame implements ActionListener{
 	private final static JButton vendedor = new JButton("Vendedor");
 	private final static JButton sair = new JButton("Sair");
 	
+	public static void main(String[] args) {
+		ViewMenu menu = new ViewMenu();
+		
+		produto.addActionListener(menu);
+		cliente.addActionListener(menu);
+		vendedor.addActionListener(menu);
+		sair.addActionListener(menu);
+		Dados.cadastrarDados();
+	}
 	
 	public ViewMenu() {
 		
@@ -40,14 +51,7 @@ public class ViewMenu extends JFrame implements ActionListener{
 		janela.setResizable(false);
 			
 		}
-	public static void main(String[] args) {
-		ViewMenu menu = new ViewMenu();
-		
-		produto.addActionListener(menu);
-		cliente.addActionListener(menu);
-		vendedor.addActionListener(menu);
-		sair.addActionListener(menu);
-	}
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();

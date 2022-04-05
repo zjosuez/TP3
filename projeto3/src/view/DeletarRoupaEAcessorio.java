@@ -22,9 +22,10 @@ public class DeletarRoupaEAcessorio extends JFrame implements ActionListener {
 	private JTextArea produtoAreaTexto;
 	private final JLabel tituloDeletarRoupaEAcessorio;
 	private final JFrame janelaDeletarProduto;
-	private final JComboBox<String> selecionarFilmeComboBox;
+	private final JComboBox<String> buscarProdutoComboBox;
 	private final JButton okBtn;
 	private final JButton voltarBnt;
+	private final JButton deletarBtn;
 	private RoupaEAcessorio product;
 	
 	
@@ -43,7 +44,7 @@ public class DeletarRoupaEAcessorio extends JFrame implements ActionListener {
 		
 //		// Area texto do produto
 		produtoAreaTexto = new JTextArea();
-		produtoAreaTexto.setBounds(20, 60, 510, 199);
+		produtoAreaTexto.setBounds(25, 150, 510, 199);
 		produtoAreaTexto.setEditable(false);
 		janelaDeletarProduto.add(produtoAreaTexto);
 		
@@ -55,28 +56,33 @@ public class DeletarRoupaEAcessorio extends JFrame implements ActionListener {
 		janelaDeletarProduto.setResizable(false);
 			
 		// ok button
-		okBtn = new JButton("OK");
-		okBtn.setBounds(300, 260, 59, 28);
+		okBtn = new JButton("Mostrar Detalhes");
+		okBtn.setBounds(25, 370, 150, 35);
 		okBtn.addActionListener(this);
 		janelaDeletarProduto.add(okBtn);
 		
 		// voltar button
 		voltarBnt = new JButton("Voltar");
-		voltarBnt.setBounds(300, 300, 59, 28);
+		voltarBnt.setBounds(386, 370, 150, 35);
 		voltarBnt.addActionListener(this);
 		janelaDeletarProduto.add(voltarBnt);
+		
+		deletarBtn = new JButton("Deletar");
+		deletarBtn.setBounds(208, 370, 150, 35);
+		deletarBtn.addActionListener(this);
+		janelaDeletarProduto.add(deletarBtn);
 			
 		// comboBox
-		selecionarFilmeComboBox = new JComboBox<>();
-		selecionarFilmeComboBox.setBounds(64, 22, 390, 22);
-		selecionarFilmeComboBox.setModel(controller.atualizarProduto());
-		janelaDeletarProduto.add(selecionarFilmeComboBox);
-		selecionarFilmeComboBox.addItem("Selecionar Filme");
-		selecionarFilmeComboBox.setSelectedIndex(1);
+		buscarProdutoComboBox = new JComboBox<>();
+		buscarProdutoComboBox.setBounds(64, 80, 390, 22);
+		buscarProdutoComboBox.setModel(controller.atualizarProduto());
+		janelaDeletarProduto.add(buscarProdutoComboBox);
+		buscarProdutoComboBox.addItem("Selecionar Filme");
+		buscarProdutoComboBox.setSelectedIndex(-1);
 	}
 	
-	public JComboBox<String> getSelecionarFilmeComboBox() {
-		return selecionarFilmeComboBox;
+	public JComboBox<String> getBuscarProdutoComboBox() {
+		return buscarProdutoComboBox;
 	}
 
 	public JButton getOkBtn() {
@@ -91,8 +97,13 @@ public class DeletarRoupaEAcessorio extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		Object botao = e.getSource();
 		if (botao == okBtn) {
-            produtoAreaTexto.setText(((controller.buscarRoupaEAcessorio((String)getSelecionarFilmeComboBox().getSelectedItem())).toString())); 
+            produtoAreaTexto.setText(((controller.buscarRoupaEAcessorio((String)getBuscarProdutoComboBox().getSelectedItem())).toString())); 
             produtoAreaTexto.updateUI();
+		}
+		if(botao == deletarBtn) {
+			controller.removerRoupaEAcessorio((String)getBuscarProdutoComboBox().getSelectedItem());
+			new MenuRoupaEAcessorio();
+			janelaDeletarProduto.setVisible(false);
 		}
 			
         

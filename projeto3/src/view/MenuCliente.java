@@ -15,10 +15,9 @@ public class MenuCliente extends JFrame implements ActionListener {
 	private final JLabel tituloMenuCliente;
 	private final JButton cadastrarCliente;
 	private final JButton mostrarContaCliente;
-	private final JButton editarCliente;
-	private final JButton buscarNomeCliente;
 	private final JButton comprarProduto;
 	private final JButton voltar;
+	private final JButton buscarBtn;
 	
 	public MenuCliente() {
 		tituloMenuCliente = new JLabel("Menu Cliente");
@@ -27,32 +26,27 @@ public class MenuCliente extends JFrame implements ActionListener {
 		
 		// Cria botao cadastrar
 		cadastrarCliente = new JButton("Cadastrar Cliente");
-		cadastrarCliente.setBounds(145,70,200,30);
+		cadastrarCliente.setBounds(145,80,200,40);
 		cadastrarCliente.addActionListener(this);
 		
 		// Cria botao deletar
 		mostrarContaCliente = new JButton("Mostrar Conta");
-		mostrarContaCliente.setBounds(145,120,200,30);
+		mostrarContaCliente.setBounds(145,140,200,40);
 		mostrarContaCliente.addActionListener(this);
-		
-		// Cria botao editar cliente
-		editarCliente = new JButton("Editar Cliente");
-		editarCliente.setBounds(145,170,200,30);
-		editarCliente.addActionListener(this);
-		
-		// Cria botao busca cliente
-		buscarNomeCliente = new JButton("Buscar Pelo Nome");
-		buscarNomeCliente.setBounds(145,170,200,30);
-		buscarNomeCliente.addActionListener(this);
 		
 		// Cria botao para comprar produto
 		comprarProduto = new JButton("Comprar Produto");
-		comprarProduto.setBounds(145,220,200,30);
+		comprarProduto.setBounds(145,200,200,40);
 		comprarProduto.addActionListener(this);
 		
 		// Cria botao voltar
+		buscarBtn = new JButton("Buscar");
+		buscarBtn.setBounds(145, 260, 200, 40);
+		buscarBtn.addActionListener(this);
+		
+		// Cria botao voltar
 		voltar = new JButton("Voltar");
-		voltar.setBounds(145, 270, 200, 30);
+		voltar.setBounds(145, 320, 200, 40);
 		voltar.addActionListener(this);
 		
 		// Cadastra o JFrame
@@ -61,11 +55,10 @@ public class MenuCliente extends JFrame implements ActionListener {
 		janelaCliente.add(tituloMenuCliente);
 		janelaCliente.add(cadastrarCliente);
 		janelaCliente.add(mostrarContaCliente);
-		janelaCliente.add(editarCliente);
-		janelaCliente.add(buscarNomeCliente);
 		janelaCliente.add(comprarProduto);
 		janelaCliente.add(voltar);
-		janelaCliente.setSize(500, 420);
+		janelaCliente.add(buscarBtn);
+		janelaCliente.setSize(500, 460);
 		janelaCliente.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		janelaCliente.setVisible(true);
 		janelaCliente.setResizable(false);
@@ -75,7 +68,7 @@ public class MenuCliente extends JFrame implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-Object src = e.getSource();
+		Object src = e.getSource();
 		
 		if(src == cadastrarCliente) {
 			new CadastraCliente();
@@ -83,22 +76,8 @@ Object src = e.getSource();
 		}
 		
 		if(src == mostrarContaCliente) {
-			new MenuConta();
+			new MenuContaCliente();
 			janelaCliente.setVisible(false);
-		}
-		
-		if(src == editarCliente) {
-			JOptionPane.showMessageDialog(null, 
-					"Ainda precisam ser implementadas as funcionalidades\n"
-					+ "relacionadas a curso e a matricula", null, 
-					JOptionPane.INFORMATION_MESSAGE);
-		}
-		
-		if(src == buscarNomeCliente) {
-			JOptionPane.showMessageDialog(null, 
-					"Ainda precisam ser implementadas as funcionalidades\n"
-					+ "relacionadas a curso e a matricula", null, 
-					JOptionPane.INFORMATION_MESSAGE);
 		}
 		
 		if(src == comprarProduto) {
@@ -107,6 +86,10 @@ Object src = e.getSource();
 					+ "relacionadas a curso e a matricula", null, 
 					JOptionPane.INFORMATION_MESSAGE);
 		}
+		if (src == buscarBtn) {
+			new BuscaRoupaEAcessorio();
+			janelaCliente.setVisible(false);
+;		}
 		
 		if(src == voltar) {
 			new ViewMenu();

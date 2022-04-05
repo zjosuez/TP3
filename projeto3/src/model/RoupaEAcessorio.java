@@ -1,6 +1,11 @@
 package model;
 
-
+/**
+ * Classe responsavel pelos atributos do produto e suas respectivas informacoes
+ * 
+ * @author Josue Teixeira Santana
+ *
+ */
 public class RoupaEAcessorio {
 	
 	private String nome;
@@ -13,7 +18,18 @@ public class RoupaEAcessorio {
 	private String genero;
 
 	
-	// Constructor 
+	/**
+	 * Contrutor da classe, responsavel pelo armazenamento das informacoes
+	 * 
+	 * @param nome - nome do produto
+	 * @param categoria - categoria do produto
+	 * @param modelo - modelo do produto
+	 * @param tamanho - tamanho do produto
+	 * @param descricao - descricao do produto
+	 * @param condicaoDeUso - condicao de uso 
+	 * @param preco - preco do produto
+	 * @param genero - genero do produto
+	 */
 	public RoupaEAcessorio(String nome, String categoria, String modelo, String tamanho, String descricao,
 			String condicaoDeUso, double preco, String genero) {
 	
@@ -26,15 +42,10 @@ public class RoupaEAcessorio {
 		this.preco = preco;
 		this.genero = genero;
 	}
-	
-	@Override
-	public String toString() {
-		return "nome=" + nome + "\n categoria=" + categoria + "\n modelo=" + modelo + "\n tamanho="
-				+ tamanho + "\n descricao=" + descricao + "\n condicaoDeUso=" + condicaoDeUso + "\n preco=" + preco
-				+ "\n genero=" + genero;
-	}
 
-	// Getters and setters
+	/**
+	 * Metodos getters e setters referente aos atributos da classe Cliente
+	 */
 	public String getNome() {
 		return nome;
 	}
@@ -98,5 +109,16 @@ public class RoupaEAcessorio {
 	public void setGenero(String genero) {
 		this.genero = genero;
 	}
-
+	
+	/**
+	 * Metodo responsavel por sobrescrever o objeto toString
+	 * @return - Retorna uma String contento os dados armazenado
+	 * na classe RoupaEAcessorio
+	 */
+	@Override
+	public String toString() {
+		return "Nome: " + nome + "\nCategoria: " + categoria + "\n Modelo: " + modelo + "\n Tamanho: "
+				+ tamanho + "\nDescricao: " + descricao + "\nCondicao de uso: " + condicaoDeUso + "\nPreco: " + preco
+				+ "\nGenero: " + genero;
+	}
 }

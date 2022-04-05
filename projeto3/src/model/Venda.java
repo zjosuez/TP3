@@ -3,6 +3,11 @@ package model;
 import java.util.ArrayList;
 import java.util.Date;
 
+/**
+ * Classe responsavel pela venda do produto ao cliente
+ * @author Josue Teixeira Santana
+ *
+ */
 public class Venda{
 	private RoupaEAcessorio roupaeacessorio;
 	private Date dataVenda;
@@ -11,7 +16,14 @@ public class Venda{
 	private String formaPagamento;
 	private ArrayList<Venda> vendas = new ArrayList<Venda>();
 	
-	// Constructor
+	/**
+	 * Contrutor da classe, responsavel pelo amazenamento das informacoes da venda
+	 * @param roupaeacessorio
+	 * @param dataVenda
+	 * @param qtdProduto
+	 * @param formaPagamento
+	 * @param precoTotal
+	 */
 	public Venda(RoupaEAcessorio roupaeacessorio, Date dataVenda, int qtdProduto,
 			String formaPagamento, double precoTotal) {
 		this.roupaeacessorio = roupaeacessorio;
@@ -20,7 +32,9 @@ public class Venda{
 		this.formaPagamento = formaPagamento;
 	}
 	
-	// Getters and Setters
+	/**
+	 * Metodos getters e setters referente aos atributos da classe Cliente
+	 */
 	public RoupaEAcessorio getRoupaeacessorio() {
 		return roupaeacessorio;
 	}
@@ -58,32 +72,36 @@ public class Venda{
 		this.formaPagamento = formaPagamento;
 	}
 	
-	// Methods
-	public void cadastrar() {
-		RoupaEAcessorio produtoVenda = getRoupaeacessorio();
-		Double precoVenda = roupaeacessorio.getPreco();
-		if (getQtdProduto() > 1) {
-			setPrecoTotal(precoVenda* qtdProduto);
-		} else {
-			setPrecoTotal(precoVenda);
-		}
-		
-		vendas.add(new Venda(produtoVenda, dataVenda, qtdProduto, formaPagamento, precoTotal));
-	}
 	
-	public void editar(int posicaoEditar,RoupaEAcessorio roupaeacessorio, Date dataVenda, int qtdProduto,
-			String formaPagamento) {
-		vendas.get(posicaoEditar).setRoupaeacessorio(roupaeacessorio);
-		vendas.get(posicaoEditar).setDataVenda(dataVenda);
-		vendas.get(posicaoEditar).setQtdProduto(qtdProduto);
-		vendas.get(posicaoEditar).setFormaPagamento(formaPagamento);
-	}
-	
-	public void deletar(int vendaRemover) {
-		System.out.println("A venda foi removida com sucesso!");
-		vendas.remove(vendaRemover);
-	}
+//	public void cadastrar() {
+//		RoupaEAcessorio produtoVenda = getRoupaeacessorio();
+//		Double precoVenda = roupaeacessorio.getPreco();
+//		if (getQtdProduto() > 1) {
+//			setPrecoTotal(precoVenda* qtdProduto);
+//		} else {
+//			setPrecoTotal(precoVenda);
+//		}
+//		
+//		vendas.add(new Venda(produtoVenda, dataVenda, qtdProduto, formaPagamento, precoTotal));
+//	}
+//	
+//	public void editar(int posicaoEditar,RoupaEAcessorio roupaeacessorio, Date dataVenda, int qtdProduto,
+//			String formaPagamento) {
+//		vendas.get(posicaoEditar).setRoupaeacessorio(roupaeacessorio);
+//		vendas.get(posicaoEditar).setDataVenda(dataVenda);
+//		vendas.get(posicaoEditar).setQtdProduto(qtdProduto);
+//		vendas.get(posicaoEditar).setFormaPagamento(formaPagamento);
+//	}
+//	
+//	public void deletar(int vendaRemover) {
+//		System.out.println("A venda foi removida com sucesso!");
+//		vendas.remove(vendaRemover);
+//	}
 
+	/**
+	 * Metodo responsavel por sobrescrever o objeto
+	 * @return - Retorna uma String contento os dados da venda
+	 */
 	@Override
 	public String toString() {
 		return  "Data da venda: " + dataVenda + "\nQuantidade do produto: " + vendas.get(0).getQtdProduto()

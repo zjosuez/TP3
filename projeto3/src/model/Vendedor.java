@@ -1,16 +1,33 @@
 package model;
 
+/**
+ * Classe responsavel pelos dados do vendedor, essa classe implementa os
+ * atributos e metodos da classe Pessoa
+ * @author Josue Teixeira Santana
+ *
+ */
 public class Vendedor extends Pessoa {
 
-	private RoupaEAcessorio roupaeacessorio;
 	private int qtdVendas;
 	
-	// Constructor
-	public Vendedor() {
-
+	/**
+	 * Contrutor da classe vendedor responsavel pelo armazenamento
+	 * dos dados do vendedor
+	 * @param nome
+	 * @param cpf
+	 * @param endereco
+	 * @param telefone
+	 */
+	public Vendedor(String nome, String cpf, String endereco, String telefone) {
+		this.nome = nome;
+		this.cpf = cpf;
+		this.endereco = endereco;
+		this.telefone = telefone;
 	}
 
-	// Getters and Setters
+	/**
+	 * Metodos getters e setters referente aos atributos da classe Cliente
+	 */
 	public String getNome() {
 		return nome;
 	}
@@ -42,15 +59,6 @@ public class Vendedor extends Pessoa {
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
-	
-	public RoupaEAcessorio getRoupaeacessorio() {
-		
-		return roupaeacessorio;
-	}
-
-	public void setRoupaeacessorio(RoupaEAcessorio roupaeacessorio) {
-		this.roupaeacessorio = roupaeacessorio;
-	}
 
 	public int getQtdVendas() {
 		return qtdVendas;
@@ -59,26 +67,14 @@ public class Vendedor extends Pessoa {
 	public void setQtdVendas() {
 		this.qtdVendas += 1;
 	}
-
-//	@Override
-//	public void cadastrar(String nome, String cpf, String endereco, int telefone) {
-//		setNome(nome);
-//		setCpf(cpf);
-//		setEndereco(endereco);
-//		setTelefone(telefone);
-//		System.out.println("O vendedor " + getNome() + " Foi cadastrado com sucesso!\n");
-//	}
-//
-//	@Override
-//	public void editar(String nome, String cpf, String endereco,int telefone) {
-//		setNome(nome);
-//		setCpf(cpf);
-//		setEndereco(endereco);
-//		setTelefone(telefone);
-//	}
-//
-//	@Override
-//	public void verPessoa() {
-//		System.out.println("-----Vendedor-----\nNome do vendedor: " + nome + "\nCPF: " + cpf + "\nEndereco: " + endereco + "\nTelefone: " + telefone + "\n");
-//	}
+	
+	/**
+	 * Metodo responsavel por sobrescrever o objeto
+	 * @return - Retorna uma String contento os dados do vendedor
+	 */
+	@Override
+	public String toString() {
+		return "-----Vendedor----- " + "\nNome: " + nome + "\nCpf: " + cpf + "\nEndereco: " + endereco
+				+ "\nTelefone: " + telefone + "\n";
+	}
 }
