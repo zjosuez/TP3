@@ -30,6 +30,7 @@ public class Cliente extends Pessoa {
 	
 	/**
 	 * Metodos getters e setters referente aos atributos da classe Cliente
+	 * @return - Getters e setters
 	 */
 	public String getNome() {
 		return nome;

@@ -9,7 +9,7 @@ import java.util.Date;
  *
  */
 public class Venda{
-	private RoupaEAcessorio roupaeacessorio;
+	private Object roupaeacessorio;
 	private Date dataVenda;
 	private int qtdProduto;
 	private double precoTotal;
@@ -18,24 +18,24 @@ public class Venda{
 	
 	/**
 	 * Contrutor da classe, responsavel pelo amazenamento das informacoes da venda
-	 * @param roupaeacessorio
+	 * @param produto
 	 * @param dataVenda
 	 * @param qtdProduto
 	 * @param formaPagamento
 	 * @param precoTotal
 	 */
-	public Venda(RoupaEAcessorio roupaeacessorio, Date dataVenda, int qtdProduto,
-			String formaPagamento, double precoTotal) {
-		this.roupaeacessorio = roupaeacessorio;
-		this.dataVenda = dataVenda;
+	public Venda(Object produto, int qtdProduto,
+			String formaPagamento, double preco) {
+		this.roupaeacessorio = produto;
 		this.qtdProduto = qtdProduto;
 		this.formaPagamento = formaPagamento;
 	}
 	
 	/**
 	 * Metodos getters e setters referente aos atributos da classe Cliente
+	 * @return getters e setters
 	 */
-	public RoupaEAcessorio getRoupaeacessorio() {
+	public Object getRoupaeacessorio() {
 		return roupaeacessorio;
 	}
 	public void setRoupaeacessorio(RoupaEAcessorio roupaeacessorio) {
@@ -54,12 +54,6 @@ public class Venda{
 		this.qtdProduto = qtdProduto;
 	}
 	public double getPrecoTotal() {
-		Double precoVenda = roupaeacessorio.getPreco();
-		if (getQtdProduto() > 1) {
-			setPrecoTotal(precoVenda* qtdProduto);
-		} else {
-			setPrecoTotal(precoVenda);
-		}
 		return precoTotal;
 	}
 	public void setPrecoTotal(double precoTotal) {
@@ -71,32 +65,6 @@ public class Venda{
 	public void setFormaPagamento(String formaPagamento) {
 		this.formaPagamento = formaPagamento;
 	}
-	
-	
-//	public void cadastrar() {
-//		RoupaEAcessorio produtoVenda = getRoupaeacessorio();
-//		Double precoVenda = roupaeacessorio.getPreco();
-//		if (getQtdProduto() > 1) {
-//			setPrecoTotal(precoVenda* qtdProduto);
-//		} else {
-//			setPrecoTotal(precoVenda);
-//		}
-//		
-//		vendas.add(new Venda(produtoVenda, dataVenda, qtdProduto, formaPagamento, precoTotal));
-//	}
-//	
-//	public void editar(int posicaoEditar,RoupaEAcessorio roupaeacessorio, Date dataVenda, int qtdProduto,
-//			String formaPagamento) {
-//		vendas.get(posicaoEditar).setRoupaeacessorio(roupaeacessorio);
-//		vendas.get(posicaoEditar).setDataVenda(dataVenda);
-//		vendas.get(posicaoEditar).setQtdProduto(qtdProduto);
-//		vendas.get(posicaoEditar).setFormaPagamento(formaPagamento);
-//	}
-//	
-//	public void deletar(int vendaRemover) {
-//		System.out.println("A venda foi removida com sucesso!");
-//		vendas.remove(vendaRemover);
-//	}
 
 	/**
 	 * Metodo responsavel por sobrescrever o objeto

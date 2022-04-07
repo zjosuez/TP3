@@ -17,7 +17,6 @@ public class ControllerCliente {
 	 * 
 	 * @param view recebe a view CadastraCliente
 	 */
-
 	public ControllerCliente (CadastraCliente view) {
 		
 		this.view = view;

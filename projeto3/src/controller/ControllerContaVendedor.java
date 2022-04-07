@@ -8,7 +8,8 @@ import javax.swing.JOptionPane;
 
 import model.Vendedor;
 import model.Dados;
-import view.BuscaRoupaEAcessorio;
+import view.ViewBusca;
+import view.CadastraRoupaEAcessorio;
 import view.EditarVendedor;
 import view.MenuVendedor;
 import view.MenuContaVendedor;
@@ -18,11 +19,11 @@ import view.MenuContaVendedor;
  * @author Josue Teixeira Santana
  *
  */
-
 public class ControllerContaVendedor {
 	
 	private MenuContaVendedor view;
-	private BuscaRoupaEAcessorio view2;
+	private ViewBusca view2;
+	private CadastraRoupaEAcessorio view3;
 	
 	/** Faz a inicializacao da view
 	 * 
@@ -33,8 +34,16 @@ public class ControllerContaVendedor {
 		this.view = view;
 	}
 
-	public ControllerContaVendedor(BuscaRoupaEAcessorio view) {
-		this.view2 = view;
+	/** Faz a inicializacao da view
+	 * 
+	 * @param view recebe a view MenuContaVendedor
+	 */
+	public ControllerContaVendedor(ViewBusca view2) {
+		this.view2 = view2;
+	}
+
+	public ControllerContaVendedor(CadastraRoupaEAcessorio view3) {
+		this.view3 = view3;
 	}
 
 	/**

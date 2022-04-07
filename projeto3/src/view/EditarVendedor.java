@@ -10,6 +10,12 @@ import javax.swing.JTextField;
 import controller.EditarVendedorController;
 import model.Vendedor;
 
+/**
+ * Classe responsavel por editar os dados do vendedor.
+ * recebe todos os dados referente ao vendedor e faz a edicao deles
+ * 
+ * @author Josue Teixeira Santana
+ */
 public class EditarVendedor extends JFrame implements ActionListener{
 
 	private final Vendedor vendedor;
@@ -27,6 +33,13 @@ public class EditarVendedor extends JFrame implements ActionListener{
 	private final JButton voltarBtn;
 	private final EditarVendedorController controller;
 	
+	/**
+	 * Metodo que cria todas as Jlabels, JTextField... interface no geral.
+	 * recebe os seguintes dados: nome, cpf, endereco, telefone e faz a
+	 * edicao deles.
+	 * 
+	 * @see MenuContaCliente
+	 */
 	public EditarVendedor(Vendedor vendedor) {
 		
 		controller = new EditarVendedorController(this);
@@ -135,6 +148,11 @@ public class EditarVendedor extends JFrame implements ActionListener{
 		return vendedor;
 	}
 
+	/**
+	 * Executa a acao quando um botao e pressionado.
+	 * Chama a controller para realizar a acao
+	 * 
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		

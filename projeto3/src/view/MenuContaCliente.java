@@ -13,6 +13,11 @@ import javax.swing.JTextArea;
 import controller.ControllerContaCliente;
 import model.Cliente;
 
+/**
+ * Classe responsavel pela selecao da acao do cliente
+ * 
+ * @author Josue Teixeira Santana
+ */
 public class MenuContaCliente extends JFrame implements ActionListener{
 	
 	private final ControllerContaCliente controller;
@@ -25,6 +30,12 @@ public class MenuContaCliente extends JFrame implements ActionListener{
 	private JButton editarBtn;
 	private JButton mostrarDetalhesBtn;
 	
+	/**
+	 * Metodo que cria toda a interface de interacao com o usuario.
+	 * Leva o usuario ate a view ou acao que dejesa realizar 
+	 * 
+	 * @see EditarCliente
+	 */
 	public MenuContaCliente() {
 		
 		Cliente cliente = new Cliente("", "", "", "");
@@ -112,6 +123,16 @@ public class MenuContaCliente extends JFrame implements ActionListener{
 		return janelaViewConta;
 	}
 
+	public ControllerContaCliente getController() {
+		return controller;
+	}
+
+	/**
+	 * Executa a acao quando um botao e pressionado.
+	 * Chama a controller para realizar a acao
+	 * 
+	 * @see ControllerContaCliente
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 

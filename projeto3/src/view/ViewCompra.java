@@ -11,9 +11,15 @@ import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
+import controller.ControllerContaCliente;
 import controller.ControllerRoupaEAcessorio;
 import controller.ControllerVenda;
 
+/**
+ * Classe responsavel pela selecao da acao da compra
+ * 
+ * @author Josue Teixeira Santana
+ */
 public class ViewCompra extends JFrame implements ActionListener{
 	
 	private final ControllerVenda controller;
@@ -25,11 +31,20 @@ public class ViewCompra extends JFrame implements ActionListener{
 	private final JButton voltarBnt;
 	private final JButton verProduto;
 	private ControllerRoupaEAcessorio controller2;
+	private ControllerVenda controller3;
 	
+	/**
+	 * Metodo que cria toda a interface de interacao com o usuario.
+	 * Faz a selecao do protuduto e leva o usuario ate a view ou acao que dejesa realizar 
+	 * 
+	 * @see ViewVenda
+	 */
 	public ViewCompra() {
 		
 		controller = new ControllerVenda(this);
 		controller2 = new ControllerRoupaEAcessorio(this);
+		controller3 = new ControllerVenda(this);
+		
 		janelaVenda = new JFrame("Menu Venda");
 		janelaVenda.setLayout(null);
 		janelaVenda.setSize(575, 540);
@@ -54,7 +69,7 @@ public class ViewCompra extends JFrame implements ActionListener{
 		produtoComboBox.setBounds(64, 80, 390, 22);
 		produtoComboBox.setModel(controller.atualizarProduto());
 		janelaVenda.add(produtoComboBox);
-		produtoComboBox.addItem("Selecionar Filme");
+		produtoComboBox.addItem("Selecionar Produto");
 		produtoComboBox.setSelectedIndex(0); 
 
 		// comprar button
@@ -100,14 +115,24 @@ public class ViewCompra extends JFrame implements ActionListener{
 		return produtoComboBox;
 	}
 
+	/**
+	 * Executa a acao quando um botao e pressionado.
+	 * (1) Mostra detalhes - chama a area de texto e mostra os detalhes do produto
+	 * Chama a controller para realizar as outras acoes.
+	 * 
+	 * @see ControllerContaCliente
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		if (src == verProduto) {
 			getVendaAreaTexto().setText(((controller2.buscarRoupaEAcessorio((String)getProdutoComboBox().getSelectedItem()))).toString());
+		}else {
+			controller3.setReceberProduto(getProdutoComboBox().getSelectedItem());
+			this.controller.executaBotao(e.getSource());
 		}
 		
-		this.controller.executaBotao(e.getSource());
+		
 		
 	}
 }	

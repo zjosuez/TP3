@@ -9,8 +9,14 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
+import controller.ControllerContaCliente;
 import model.Dados;
 
+/**
+ * Classe principal responsavel pela tela inicial e pelo main
+ * 
+ * @author Josue Teixeira Santana
+ */
 public class ViewMenu extends JFrame implements ActionListener{
 
 	private final static JFrame janela = new JFrame("Tela Principal");
@@ -20,6 +26,11 @@ public class ViewMenu extends JFrame implements ActionListener{
 	private final static JButton vendedor = new JButton("Vendedor");
 	private final static JButton sair = new JButton("Sair");
 	
+	/**
+	 * Classe main responsavel por inicializar a primeira view
+	 * e cadastrar os dados automaticamente
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		ViewMenu menu = new ViewMenu();
 		
@@ -30,6 +41,12 @@ public class ViewMenu extends JFrame implements ActionListener{
 		Dados.cadastrarDados();
 	}
 	
+	/**
+	 * Cria a primeira view e adiciona na janela principal
+	 * @see MenuCliente
+	 * @see MenuVendedor
+	 * @see MenuRoupaEAcessorio
+	 */
 	public ViewMenu() {
 		
 		titulo.setFont(new Font("Arial", Font.BOLD, 20));
@@ -52,6 +69,14 @@ public class ViewMenu extends JFrame implements ActionListener{
 			
 		}
 
+	/**
+	 * Executa a acao quando um botao e pressionado.
+	 * (1) produto - chama a view de produto
+	 * (2) cliente - chama a view de cliente
+	 * (3) vendedor - chama a view de vendedor
+	 * (4) sair - sair do programa
+	 * 
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
@@ -73,7 +98,7 @@ public class ViewMenu extends JFrame implements ActionListener{
 		}
 		
 		if(src == sair) { 
-				janela.setVisible(false);
+			janela.setVisible(false);
 		}
 	}
  }

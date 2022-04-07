@@ -3,7 +3,7 @@ package model;
 import java.util.ArrayList;
 
 /**
- * Classe responsavel por simular como um banco de dados
+ * Classe responsavel por simular um banco de dados
  * @author Josue Teixeira Santana
  *
  */
@@ -11,6 +11,7 @@ public class Dados {
 	private static final ArrayList<RoupaEAcessorio> products = new ArrayList<>();
 	private static final ArrayList<Cliente> dadosCliente = new ArrayList<>();
 	private static final ArrayList<Vendedor> dadosVendedor = new ArrayList<>();
+	private static final ArrayList<Venda> dadosVenda = new ArrayList<>();
 	
 	/**
 	 * Todos os dados pre-cadastrados automaticamente
@@ -27,14 +28,7 @@ public class Dados {
 		dadosCliente.add(cliente1);
 		dadosCliente.add(cliente2);
 		dadosCliente.add(cliente3);
-		
-		Vendedor vendedor1 = new Vendedor("Gabriel Joaquim Isaac Carvalho", "20526590998", "Quadra Quadra 205 Conjunto 15", "61989542564");
-		Vendedor vendedor2 = new Vendedor("Benício Severino Lima", "29242660256", "Condomínio Privê II Quadra 1 Conjunto C", "61989769414");
-		Vendedor vendedor3 = new Vendedor("Luana Fabiana Brenda Galvão", "69394905073", "Rua Hércules Santos", "71988274660");
-		dadosVendedor.add(vendedor1);
-		dadosVendedor.add(vendedor2);
-		dadosVendedor.add(vendedor3);
-		
+	 
 		RoupaEAcessorio produto1 = new RoupaEAcessorio("Camisa azul zara", "Camisas", "Gola italiana", "36", "camisa azul confeccionada em cetim,"
 				+ " o modelo possui gola italiana e fecho por botões", "Novo", 99.36, "Feminino");
 		RoupaEAcessorio produto2 = new RoupaEAcessorio("Camisa bege gregory", "Camisas", "Gola italiana", "42", "camisa bege confeccionada em algodão"
@@ -54,13 +48,19 @@ public class Dados {
 		products.add(produto5);
 		products.add(produto6);
 		
+		Vendedor vendedor1 = new Vendedor("Gabriel Joaquim Isaac Carvalho", "20526590998", "Quadra Quadra 205 Conjunto 15", "61989542564", produto1);
+		Vendedor vendedor2 = new Vendedor("Benício Severino Lima", "29242660256", "Condomínio Privê II Quadra 1 Conjunto C", "61989769414",produto2);
+		Vendedor vendedor3 = new Vendedor("Luana Fabiana Brenda Galvão", "69394905073", "Rua Hércules Santos", "71988274660",produto3);
+		dadosVendedor.add(vendedor1);
+		dadosVendedor.add(vendedor2);
+		dadosVendedor.add(vendedor3);
 		
 		
 	}
 	
 	/**
 	 * Todos os metodos (getters e setters) referente aos atributos da classe
-	 * 
+	 * @return - Getters e setters
 	 */
 	public static ArrayList<RoupaEAcessorio> getProducts() {
 		return products;
@@ -72,5 +72,9 @@ public class Dados {
 	
 	public static ArrayList<Vendedor> getVendedor() {
 		return dadosVendedor;
+	}
+
+	public static ArrayList<Venda> getDadosvenda() {
+		return dadosVenda;
 	}
 }

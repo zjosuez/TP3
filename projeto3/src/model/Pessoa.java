@@ -15,7 +15,7 @@ public abstract class Pessoa {
 	
 	/**
 	 * Todos os metodos (getters e setters) referente aos atributos da classe
-	 * 
+	 * @return - Getters e setters
 	 */
 	public String getNome() {
 		return nome;

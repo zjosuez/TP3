@@ -16,7 +16,6 @@ public class RoupaEAcessorio {
 	private String condicaoDeUso;
 	private double preco;
 	private String genero;
-
 	
 	/**
 	 * Contrutor da classe, responsavel pelo armazenamento das informacoes
@@ -45,6 +44,7 @@ public class RoupaEAcessorio {
 
 	/**
 	 * Metodos getters e setters referente aos atributos da classe Cliente
+	 * @return - Getters e setters
 	 */
 	public String getNome() {
 		return nome;
@@ -109,7 +109,7 @@ public class RoupaEAcessorio {
 	public void setGenero(String genero) {
 		this.genero = genero;
 	}
-	
+
 	/**
 	 * Metodo responsavel por sobrescrever o objeto toString
 	 * @return - Retorna uma String contento os dados armazenado
@@ -117,7 +117,7 @@ public class RoupaEAcessorio {
 	 */
 	@Override
 	public String toString() {
-		return "Nome: " + nome + "\nCategoria: " + categoria + "\n Modelo: " + modelo + "\n Tamanho: "
+		return "Nome: " + nome + "\nCategoria: " + categoria + "\nModelo: " + modelo + "\nTamanho: "
 				+ tamanho + "\nDescricao: " + descricao + "\nCondicao de uso: " + condicaoDeUso + "\nPreco: " + preco
 				+ "\nGenero: " + genero;
 	}

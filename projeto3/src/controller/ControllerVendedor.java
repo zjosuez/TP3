@@ -1,7 +1,14 @@
 package controller;
 
 import model.Vendedor;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.DefaultComboBoxModel;
+
 import model.Dados;
+import model.RoupaEAcessorio;
 import view.CadastraVendedor;
 
 /**
@@ -30,7 +37,34 @@ public class ControllerVendedor {
 		String cpf = view.getCpfTexto().getText();
 		String endereco = view.getEnderecoTexto().getText();
 		String telefone = view.getTelefoneTexto().getText();
+		Object produto = view.getBuscarProduto().getSelectedItem();
 		
-		Dados.getVendedor().add(new Vendedor(nome, cpf, endereco, telefone));
+		Dados.getVendedor().add(new Vendedor(nome, cpf, endereco, telefone, produto));
+	}
+	
+    /**
+     * Gera um novo array de produto
+     * 
+     * @return - nArrayProduto  um novo array de produto
+     */
+	public String[] verProduto() {
+		
+		List<String> nArrayProduto = new ArrayList<>();
+		
+		for (RoupaEAcessorio product : Dados.getProducts()) {
+			nArrayProduto.add(product.getNome());
+		}
+		
+		return nArrayProduto.toArray(new String[0]);
+	}
+
+    /**
+     * Atualiza a lista de produto utilizando o comboBox
+     * 
+     * @return - retorna um novo comboBox
+     */
+	public DefaultComboBoxModel<String> atualizarProduto() {
+	
+		return new DefaultComboBoxModel<>(verProduto());
 	}
 }

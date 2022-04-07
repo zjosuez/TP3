@@ -9,9 +9,13 @@ import javax.swing.JOptionPane;
 
 import model.Dados;
 import model.RoupaEAcessorio;
+import model.Vendedor;
+import view.ViewBusca;
 import view.CadastraRoupaEAcessorio;
 import view.DeletarRoupaEAcessorio;
 import view.MenuRoupaEAcessorio;
+import view.ViewCompra;
+import view.ViewVenda;
 
 /**
  * Controller responsavel pelas metodos dos produtos
@@ -21,15 +25,15 @@ import view.MenuRoupaEAcessorio;
 public class ControllerRoupaEAcessorio {
 	private CadastraRoupaEAcessorio view;
 	private DeletarRoupaEAcessorio view2;
-	private MenuRoupaEAcessorio view3;
+	private ViewBusca view4;
+	private ViewCompra view5;
+	private ControllerVenda view6;
 	
 	/** Faz a inicializacao da view
 	 * 
 	 * @param view3 recebe a view MenuRoupaEAcessorio
 	 */
-	public ControllerRoupaEAcessorio(MenuRoupaEAcessorio view) {
-		this.view3 = view;
-	}
+
 
 	/** Faz a inicializacao da view
 	 * 
@@ -47,6 +51,30 @@ public class ControllerRoupaEAcessorio {
 	public ControllerRoupaEAcessorio(DeletarRoupaEAcessorio view2) {
 
 		this.view2 = view2;
+	}
+
+	/** Faz a inicializacao da view
+	 * 
+	 * @param view4 recebe a view BuscaRoupaEAcessorio
+	 */
+	public ControllerRoupaEAcessorio(ViewBusca view4) {
+		this.view4 = view4;
+	}
+
+	/** Faz a inicializacao da view
+	 * 
+	 * @param view5 recebe a view ViewCompra
+	 */
+	public ControllerRoupaEAcessorio(ViewCompra view5) {
+		this.view5 = view5;
+	}
+
+	/** Faz a inicializacao da view
+	 * 
+	 * @param view6 recebe a view ControllerVenda
+	 */
+	public ControllerRoupaEAcessorio(ControllerVenda view6) {
+		this.view6 = view6;
 	}
 
 	/**
@@ -67,7 +95,7 @@ public class ControllerRoupaEAcessorio {
 		Double preco = Double.parseDouble(view.getPrecoTexto().getText());
 		String genero = view.getGeneroTexto().getText();
 		String descricao = view.getDescricaoTexto().getText();
-
+		
 		Dados.getProducts().add(new RoupaEAcessorio(nome, categoria, modelo, tamanho, descricao, condicaoDeUso, preco, genero));
 	}
 	
@@ -99,7 +127,7 @@ public class ControllerRoupaEAcessorio {
      * @param name nome do produto
      * @return true caso verdadeiro, false caso contrario
      */
-	 private boolean verificarIgualdade(String name) {
+	 public boolean verificarIgualdade(String name) {
 	    	
 	        for (RoupaEAcessorio product : Dados.getProducts()) {
 	            if (product.getNome().equals(name)) {
@@ -153,14 +181,4 @@ public class ControllerRoupaEAcessorio {
 
         return null;
     }
-
-    /**
-     * 
-     * @param e
-     */
-	public void executarBotao(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-    
 }

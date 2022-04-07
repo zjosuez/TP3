@@ -3,8 +3,6 @@ package view;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -13,9 +11,14 @@ import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
 import controller.ControllerRoupaEAcessorio;
-import model.Dados;
 import model.RoupaEAcessorio;
 
+/**
+ * Classe responsavel por deletar uma RoupaEAcessorio
+ * seleciona um produto e faz a remocao do mesmo.
+ * 
+ * @author Josue Teixeira Santana
+ */
 public class DeletarRoupaEAcessorio extends JFrame implements ActionListener {
 	
 	private final ControllerRoupaEAcessorio controller;
@@ -28,7 +31,13 @@ public class DeletarRoupaEAcessorio extends JFrame implements ActionListener {
 	private final JButton deletarBtn;
 	private RoupaEAcessorio product;
 	
-	
+	/**
+	 * Metodo que cria todas as Jlabels, JTextField... interface no geral.
+	 * Esse metodo faz a selecao do produto atraves de um comboBox e depois
+	 * de selecionado voce pode executar a acao no botao.
+	 * 
+	 * @see MenuRoupaEAcessorio
+	 */
 	public DeletarRoupaEAcessorio() {
 		
 		controller = new ControllerRoupaEAcessorio(this);
@@ -42,7 +51,7 @@ public class DeletarRoupaEAcessorio extends JFrame implements ActionListener {
 		tituloDeletarRoupaEAcessorio.setBounds(168,19,245,30);
 		janelaDeletarProduto.add(tituloDeletarRoupaEAcessorio);		
 		
-//		// Area texto do produto
+		// Area texto do produto
 		produtoAreaTexto = new JTextArea();
 		produtoAreaTexto.setBounds(25, 150, 510, 199);
 		produtoAreaTexto.setEditable(false);
@@ -67,6 +76,7 @@ public class DeletarRoupaEAcessorio extends JFrame implements ActionListener {
 		voltarBnt.addActionListener(this);
 		janelaDeletarProduto.add(voltarBnt);
 		
+		// Deletar btn
 		deletarBtn = new JButton("Deletar");
 		deletarBtn.setBounds(208, 370, 150, 35);
 		deletarBtn.addActionListener(this);
@@ -77,8 +87,8 @@ public class DeletarRoupaEAcessorio extends JFrame implements ActionListener {
 		buscarProdutoComboBox.setBounds(64, 80, 390, 22);
 		buscarProdutoComboBox.setModel(controller.atualizarProduto());
 		janelaDeletarProduto.add(buscarProdutoComboBox);
-		buscarProdutoComboBox.addItem("Selecionar Filme");
-		buscarProdutoComboBox.setSelectedIndex(-1);
+		buscarProdutoComboBox.addItem("Selecionar Produto");
+		buscarProdutoComboBox.setSelectedIndex(0);
 	}
 	
 	public JComboBox<String> getBuscarProdutoComboBox() {
@@ -90,9 +100,11 @@ public class DeletarRoupaEAcessorio extends JFrame implements ActionListener {
 	}
 
 	/**
-	 * Executa o comando quando o botão é clicado
+	 * Executa o comando quando o botão é clicado.
+	 * (1) Mostrar detalhes - mostra todos os dados do produto
+	 * (2) Deletar - deleta o produto dos dados cadastrados
+	 * (3) Voltar - volta para  a view anterior
 	 * 
-	 * Implementa a interface ActionListener
 	 */
 	public void actionPerformed(ActionEvent e) {
 		Object botao = e.getSource();

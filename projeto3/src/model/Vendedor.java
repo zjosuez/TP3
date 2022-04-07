@@ -9,7 +9,7 @@ package model;
 public class Vendedor extends Pessoa {
 
 	private int qtdVendas;
-	
+	private Object produto;
 	/**
 	 * Contrutor da classe vendedor responsavel pelo armazenamento
 	 * dos dados do vendedor
@@ -17,16 +17,19 @@ public class Vendedor extends Pessoa {
 	 * @param cpf
 	 * @param endereco
 	 * @param telefone
+	 * @param produto
 	 */
-	public Vendedor(String nome, String cpf, String endereco, String telefone) {
+	public Vendedor(String nome, String cpf, String endereco, String telefone, Object produto) {
 		this.nome = nome;
 		this.cpf = cpf;
 		this.endereco = endereco;
 		this.telefone = telefone;
+		this.produto = produto;
 	}
 
 	/**
 	 * Metodos getters e setters referente aos atributos da classe Cliente
+	 * @return getters e setters
 	 */
 	public String getNome() {
 		return nome;
@@ -68,6 +71,14 @@ public class Vendedor extends Pessoa {
 		this.qtdVendas += 1;
 	}
 	
+	public Object getProduto() {
+		return produto;
+	}
+
+	public void setProduto(RoupaEAcessorio produto) {
+		this.produto = produto;
+	}
+
 	/**
 	 * Metodo responsavel por sobrescrever o objeto
 	 * @return - Retorna uma String contento os dados do vendedor
@@ -75,6 +86,6 @@ public class Vendedor extends Pessoa {
 	@Override
 	public String toString() {
 		return "-----Vendedor----- " + "\nNome: " + nome + "\nCpf: " + cpf + "\nEndereco: " + endereco
-				+ "\nTelefone: " + telefone + "\n";
+				+ "\nTelefone: " + telefone + "\nProduto: " + produto;
 	}
 }

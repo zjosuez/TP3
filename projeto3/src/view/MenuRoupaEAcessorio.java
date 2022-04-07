@@ -3,24 +3,31 @@ package view;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ComponentListener;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 
-import controller.ControllerRoupaEAcessorio;
 
+/**
+ * Classe responsavel pela selecao da acao do produto
+ * 
+ * @author Josue Teixeira Santana
+ */
 public class MenuRoupaEAcessorio extends JFrame implements ActionListener{
 
-//	private final ControllerRoupaEAcessorio view;
 	private final JFrame janelaProduto;
 	private final JLabel titulo;
 	private final JButton cadastrarProduto;
 	private final JButton deletarProduto;
 	private final JButton voltar;
 	
+	/**
+	 * Metodo que cria toda a interface de interacao com o usuario.
+	 * Leva o usuario ate a view ou acao que dejesa realizar 
+	 * 
+	 * @see CadastraRoupaEAcessorio
+	 * @see DeletarRoupaEAcessorio
+	 */
 	public MenuRoupaEAcessorio() {
 		
 		titulo = new JLabel("Menu roupa e acessorio");
@@ -55,6 +62,13 @@ public class MenuRoupaEAcessorio extends JFrame implements ActionListener{
 		janelaProduto.setResizable(false);
 	}
 	
+	/**
+	 * Executa a acao quando um botao e pressionado.
+	 * (1) Cadastrar - chama a view CadastraRoupaEAcessorio e faz o cadastro nos dados
+	 * (2) Deletar - chama a view que faz a remocao do produto selecionado
+	 * (3) Voltar - volta para a view anterior
+	 * 
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
@@ -67,9 +81,6 @@ public class MenuRoupaEAcessorio extends JFrame implements ActionListener{
 		if(src == deletarProduto) {
 			new DeletarRoupaEAcessorio();
 			janelaProduto.setVisible(false);
-//			removerRoupaEAcessorio((String)view.buscarRoupaEAcessorio().getSelectedItem());
-//	            new MenuCliente();
-//	            view.getJanelaViewConta().setVisible(false);
 		}
 
 		if(src == voltar) {

@@ -1,7 +1,6 @@
 package view;
 
 import java.awt.Font;
-import java.awt.Menu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -9,12 +8,18 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import controller.ControllerContaVendedor;
 import controller.ControllerRoupaEAcessorio;
-import model.Dados;
 
+/**
+ * Classe responsavel pela view de cadastro de RoupaEAcessorio
+ * recebe todos os dados referente ao produto atraves de uma
+ * JTextField e executa os comandos quando os botoes sao pressionados
+ * 
+ * @author Josue Teixeira Santana
+ */
 public class CadastraRoupaEAcessorio extends JFrame implements ActionListener{
 	
 	private final ControllerRoupaEAcessorio controller;
@@ -39,6 +44,15 @@ public class CadastraRoupaEAcessorio extends JFrame implements ActionListener{
 	private final JButton cadastrarbtn;
 	private final JButton cancelarbtn;
 	
+	/**
+	 * Metodo que cria todas as Jlabels, JTextField... interface no geral,
+	 * recebe os seguintes dados do usuario: nome, categoria, modelo, tamanho,
+	 * condicao de uso, preco, genero e descricao do produto.
+	 * Esse metodo cria ainda dois botoes que sao responsaveis pela execucao
+	 * do metodo
+	 * 
+	 * @see MenuRoupaEAcessorio
+	 */
 	public CadastraRoupaEAcessorio() {
 		
 		controller = new ControllerRoupaEAcessorio(this);
@@ -170,24 +184,6 @@ public class CadastraRoupaEAcessorio extends JFrame implements ActionListener{
 		janelaViewRoupaEAcessorio.setResizable(false);
 		
 	}
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		Object src = e.getSource();
-		
-		if(src == cadastrarbtn) {
-			controller.cadastrarRoupaEAcessorio();
-			JOptionPane.showMessageDialog(null, "O cadastro foi realizado com sucesso!", null, JOptionPane.INFORMATION_MESSAGE);
-			System.out.println(Dados.getProducts());
-			new MenuRoupaEAcessorio();
-			janelaViewRoupaEAcessorio.setVisible(false);
-		}
-		
-		if(src == cancelarbtn) {
-			JOptionPane.showMessageDialog(null, "O cadastro foi cancelado!", null, JOptionPane.INFORMATION_MESSAGE);
-			new MenuRoupaEAcessorio();
-			janelaViewRoupaEAcessorio.setVisible(false);
-		}
-	}
 		
 	public JTextField getNomeTexto() {
 		return nomeTexto;
@@ -212,6 +208,29 @@ public class CadastraRoupaEAcessorio extends JFrame implements ActionListener{
 	}
 	public JTextField getDescricaoTexto() {
 		return descricaoTexto;
-	}
+	}	
 	
+	/**
+	 * Executa o comando quando um botao e pressionado
+	 * (1) Cadastrar - chama o metodo da  ControllerRoupaEAcessorio que recebe os valores
+	 * e cadastra um novo produto
+	 * (2) Voltar - volta para a view anterior
+	 */
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		Object src = e.getSource();
+		
+		if(src == cadastrarbtn) {
+			controller.cadastrarRoupaEAcessorio();
+			JOptionPane.showMessageDialog(null, "O cadastro foi realizado com sucesso!", null, JOptionPane.INFORMATION_MESSAGE);
+			new MenuRoupaEAcessorio();
+			janelaViewRoupaEAcessorio.setVisible(false);
+		}
+		
+		if(src == cancelarbtn) {
+			JOptionPane.showMessageDialog(null, "O cadastro foi cancelado!", null, JOptionPane.INFORMATION_MESSAGE);
+			new MenuRoupaEAcessorio();
+			janelaViewRoupaEAcessorio.setVisible(false);
+		}
+	}
 }

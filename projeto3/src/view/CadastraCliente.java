@@ -12,6 +12,13 @@ import javax.swing.JTextField;
 
 import controller.ControllerCliente;
 
+/**
+ * Classe responsavel pela view de cadastro de clientes
+ * recebe todos os dados referente ao cliente atraves de uma
+ * JTextField e executa os comandos quando os botoes sao pressionados
+ * 
+ * @author Josue Teixeira Santana
+ */
 public class CadastraCliente extends JFrame implements ActionListener{
 	
 	private final ControllerCliente controller;
@@ -28,6 +35,14 @@ public class CadastraCliente extends JFrame implements ActionListener{
 	private final JButton cadastrarbtn;
 	private final JButton voltarbtn;
 	
+	/**
+	 * Metodo que cria todas as Jlabels, JTextField... interface no geral,
+	 * recebe os seguintes dados do usuario: nome, cpf, endereco e telefone.
+	 * Esse metodo cria ainda dois botoes que sao responsaveis pela execucao
+	 * do metodo
+	 * 
+	 * @see MenuRoupaEAcessorio
+	 */
 	public CadastraCliente() {
 		
 		controller = new ControllerCliente(this);
@@ -110,7 +125,6 @@ public class CadastraCliente extends JFrame implements ActionListener{
 				
 	}
 		
-		// Getter and Setters
 		public JTextField getNomeTexto() {
 			return nomeTexto;
 		}
@@ -127,6 +141,12 @@ public class CadastraCliente extends JFrame implements ActionListener{
 			return telefoneTexto;
 		}
 
+		/**
+		 * Executa o comando quando um botao e pressionado
+		 * (1) Cadastrar - chama o metodo da  ControllerCliente que recebe os valores
+		 * e cadastra um novo cliente
+		 * (2) Voltar - volta para a view anterior
+		 */
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			Object src = e.getSource();

@@ -9,15 +9,26 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
+/**
+ * Classe responsavel pela selecao da acao do vendedor
+ * 
+ * @author Josue Teixeira Santana
+ */
 public class MenuVendedor extends JFrame implements ActionListener {
 
 	private final JFrame janelaVendedor;
 	private final JLabel tituloVendedor;
 	private final JButton cadastrarVendedor;
 	private final JButton minhaConta;
-	private final JButton vendas;
 	private final JButton voltar;
 	
+	/**
+	 * Metodo que cria toda a interface de interacao com o usuario.
+	 * Leva o usuario ate a view ou acao que dejesa realizar 
+	 * 
+	 * @see CadastraVendedor
+	 * @see MenuContaVendedor
+	 */
 	public MenuVendedor() {
 		tituloVendedor = new JLabel("Menu Vendedor");
 		tituloVendedor.setFont(new Font("Arial", Font.BOLD, 20));
@@ -33,14 +44,9 @@ public class MenuVendedor extends JFrame implements ActionListener {
 		minhaConta.setBounds(135,120,200,30);
 		minhaConta.addActionListener(this);
 		
-		// Cria botao buscar nome
-		vendas = new JButton("Vendas");
-		vendas.setBounds(135,170,200,30);
-		vendas.addActionListener(this);
-		
 		// Cria botao voltar
 		voltar = new JButton("Voltar");
-		voltar.setBounds(135, 220, 200, 30);
+		voltar.setBounds(135, 170, 200, 30);
 		voltar.addActionListener(this);
 		
 		// Cadastra o JFrame
@@ -49,13 +55,20 @@ public class MenuVendedor extends JFrame implements ActionListener {
 		janelaVendedor.add(tituloVendedor);
 		janelaVendedor.add(cadastrarVendedor);
 		janelaVendedor.add(minhaConta);
-		janelaVendedor.add(vendas);
 		janelaVendedor.add(voltar);
 		janelaVendedor.setSize(475, 390);
 		janelaVendedor.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		janelaVendedor.setVisible(true);
 		janelaVendedor.setResizable(false);
 	}
+	
+	/**
+	 * Executa a acao quando um botao e pressionado.
+	 * (1) Cadastrar - chama a view CadastraVendedor e faz o cadastro nos dados
+	 * (2) Minha conta - chama a view MenuContaVendedor para mostrar os detalhes da conta
+	 * (3) Voltar - volta para a view anterior
+	 * 
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
@@ -70,13 +83,6 @@ public class MenuVendedor extends JFrame implements ActionListener {
 			
 			new MenuContaVendedor();
 			janelaVendedor.setVisible(false);
-		}
-		
-		if(src == vendas) {
-			JOptionPane.showMessageDialog(null, 
-					"Ainda precisam ser implementadas as funcionalidades\n"
-					+ "relacionadas a curso e a matricula", null, 
-					JOptionPane.INFORMATION_MESSAGE);
 		}
 
 		if(src == voltar) {

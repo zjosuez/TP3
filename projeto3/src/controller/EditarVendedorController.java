@@ -29,8 +29,8 @@ public class EditarVendedorController {
      * para cada um. E volta para o menu da conta do vendedor
      * @param e recebe a acao que sera executada
      */
-	public void executarBotao(JButton source) {
-		if (source == view.getConfirmarBtn()) {
+	public void executarBotao(JButton src) {
+		if (src == view.getConfirmarBtn()) {
 
             String name = view.getNomeTexto().getText();
             String cpf = view.getCpfTexto().getText();

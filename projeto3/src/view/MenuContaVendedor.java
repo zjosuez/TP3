@@ -10,9 +10,15 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
+import controller.ControllerContaCliente;
 import controller.ControllerContaVendedor;
 import model.Vendedor;
 
+/**
+ * Classe responsavel pela selecao da acao do vendedor
+ * 
+ * @author Josue Teixeira Santana
+ */
 public class MenuContaVendedor extends JFrame implements ActionListener{
 
 	private final ControllerContaVendedor controller;
@@ -25,9 +31,15 @@ public class MenuContaVendedor extends JFrame implements ActionListener{
 	private JButton editarBtn;
 	private JButton mostrarDetalhesBtn;
 	
+	/**
+	 * Metodo que cria toda a interface de interacao com o usuario.
+	 * Leva o usuario ate a view ou acao que dejesa realizar 
+	 * 
+	 * @see EditarVendedor
+	 */
 	public MenuContaVendedor() {
 		
-		Vendedor vendedor = new Vendedor("", "", "", "");
+		Vendedor vendedor = new Vendedor("", "", "", "", null);
 		controller = new ControllerContaVendedor(this);
 		
 		// Janela 
@@ -71,7 +83,7 @@ public class MenuContaVendedor extends JFrame implements ActionListener{
 				
 		// Criando ComboBox
 		buscarVendedor = new JComboBox<>();
-		buscarVendedor.setBounds(10, 60, 170, 22);
+		buscarVendedor.setBounds(10, 60, 230, 25);
 		buscarVendedor.setModel(controller.atualizarVendedor());
 		janelaViewConta.add(buscarVendedor);
 		buscarVendedor.addItem("Selecionar Vendedor");
@@ -112,6 +124,12 @@ public class MenuContaVendedor extends JFrame implements ActionListener{
 		return buscarVendedor;
 	}
 
+	/**
+	 * Executa a acao quando um botao e pressionado.
+	 * Chama a controller para realizar a acao
+	 * 
+	 * @see ControllerContaVendedor
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
