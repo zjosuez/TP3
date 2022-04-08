@@ -43,7 +43,7 @@ public class CadastraVendedor extends JFrame implements ActionListener{
 	 * Esse metodo cria ainda dois botoes que sao responsaveis pela execucao
 	 * do metodo e um comboBox que recebe os produtos associado ao vendedor
 	 * 
-	 * @see MenuMenuVendedor
+	 * @see MenuVendedor
 	 */
 	public CadastraVendedor() {
 		
