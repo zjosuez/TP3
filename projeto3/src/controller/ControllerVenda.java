@@ -21,10 +21,12 @@ import view.ViewVenda;
  *
  */
 public class ControllerVenda {
+	
+	private Object receberProduto;
 	private ViewCompra view2;
 	private ViewVenda view;
 	private ControllerRoupaEAcessorio controller;
-	private Object receberProduto;
+	
 
 	/** Faz a inicializacao da view
 	 * 
@@ -133,8 +135,8 @@ public class ControllerVenda {
 		return receberProduto;
 	}
 
-	public void setReceberProduto(Object receberProduto) {
-		this.receberProduto = receberProduto;
+	public void setReceberProduto(Object object) {
+		this.receberProduto = object;
 	}
 
 	/**

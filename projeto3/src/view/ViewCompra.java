@@ -22,7 +22,7 @@ import controller.ControllerVenda;
  */
 public class ViewCompra extends JFrame implements ActionListener{
 	
-	private final ControllerVenda controller;
+	private  ControllerVenda controller;
 	private JTextArea vendaAreaTexto;
 	private final JLabel tituloVenda;
 	private final JFrame janelaVenda;
@@ -31,7 +31,7 @@ public class ViewCompra extends JFrame implements ActionListener{
 	private final JButton voltarBnt;
 	private final JButton verProduto;
 	private ControllerRoupaEAcessorio controller2;
-	private ControllerVenda controller3;
+	
 	
 	/**
 	 * Metodo que cria toda a interface de interacao com o usuario.
@@ -43,7 +43,6 @@ public class ViewCompra extends JFrame implements ActionListener{
 		
 		controller = new ControllerVenda(this);
 		controller2 = new ControllerRoupaEAcessorio(this);
-		controller3 = new ControllerVenda(this);
 		
 		janelaVenda = new JFrame("Menu Venda");
 		janelaVenda.setLayout(null);
@@ -71,7 +70,6 @@ public class ViewCompra extends JFrame implements ActionListener{
 		janelaVenda.add(produtoComboBox);
 		produtoComboBox.addItem("Selecionar Produto");
 		produtoComboBox.setSelectedIndex(0); 
-
 		// comprar button
 		verProduto = new JButton("Mostrar");
 		verProduto.setBounds(460, 80, 80, 22);
@@ -115,6 +113,7 @@ public class ViewCompra extends JFrame implements ActionListener{
 		return produtoComboBox;
 	}
 
+
 	/**
 	 * Executa a acao quando um botao e pressionado.
 	 * (1) Mostra detalhes - chama a area de texto e mostra os detalhes do produto
@@ -128,8 +127,8 @@ public class ViewCompra extends JFrame implements ActionListener{
 		if (src == verProduto) {
 			getVendaAreaTexto().setText(((controller2.buscarRoupaEAcessorio((String)getProdutoComboBox().getSelectedItem()))).toString());
 		}else {
-			controller3.setReceberProduto(getProdutoComboBox().getSelectedItem());
 			this.controller.executaBotao(e.getSource());
+			controller.setReceberProduto(getProdutoComboBox().getSelectedItem());
 		}
 		
 		

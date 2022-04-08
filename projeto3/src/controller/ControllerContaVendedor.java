@@ -36,7 +36,7 @@ public class ControllerContaVendedor {
 
 	/** Faz a inicializacao da view
 	 * 
-	 * @param view recebe a view MenuContaVendedor
+	 * @param view2 recebe a view MenuContaVendedor
 	 */
 	public ControllerContaVendedor(ViewBusca view2) {
 		this.view2 = view2;

@@ -19,10 +19,9 @@ public class Venda{
 	/**
 	 * Contrutor da classe, responsavel pelo amazenamento das informacoes da venda
 	 * @param produto
-	 * @param dataVenda
 	 * @param qtdProduto
 	 * @param formaPagamento
-	 * @param precoTotal
+	 * @param preco
 	 */
 	public Venda(Object produto, int qtdProduto,
 			String formaPagamento, double preco) {

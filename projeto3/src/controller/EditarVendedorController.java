@@ -27,7 +27,7 @@ public class EditarVendedorController {
      * Quando o botao editar e acionado na view MenuContaVendedor ela troca 
      * os valores do nome,cpf,endereco e telefone utilizando o metodo set
      * para cada um. E volta para o menu da conta do vendedor
-     * @param e recebe a acao que sera executada
+     * @param src recebe a acao que sera executada
      */
 	public void executarBotao(JButton src) {
 		if (src == view.getConfirmarBtn()) {
